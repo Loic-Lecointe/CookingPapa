@@ -12,7 +12,7 @@ public class Plat {
 	public Plat(String name, int points) {
 		id = cpt++;
 		this.name = name;
-		this.ingredients = new ArrayList<>;
+		this.ingredients = new ArrayList<>();
 		this.points = points;
 	}
 
@@ -47,6 +47,12 @@ public class Plat {
 	public void setPoints(int points) {
 		this.points = points;
 	}
+
+	@Override
+	public String toString() {
+		return "Plat [id=" + id + ", name=" + name + ", points=" + points + "]";
+	}
+	
 	
 	
 }
