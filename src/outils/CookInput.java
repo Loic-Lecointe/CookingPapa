@@ -10,7 +10,7 @@ public class CookInput {
 		return isCorrect(plat, input);
 	}
 	
-	private static boolean isCorrect(Plat plat, String input) {
+	public static boolean isCorrect(Plat plat, String input) {
 		if (plat == null) {
 			return false;
 		}
