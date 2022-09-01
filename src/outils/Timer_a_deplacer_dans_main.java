@@ -1,4 +1,4 @@
-package src.outils;
+package outils;
 
 import java.time.LocalDateTime;
 
