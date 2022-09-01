@@ -2,10 +2,10 @@ package src.outils;
 import java.util.ArrayList;
 
 public class listeCommandes {
-	private ArrayList<plats> commandes;
+	private ArrayList<Plat> commandes;
 	
 	public listeCommandes() {
-		commandes = new ArrayList<plats>();
+		commandes = new ArrayList<Plat>();
 	}
 	
 	public void afficherListe() {
@@ -14,7 +14,7 @@ public class listeCommandes {
 		}
 	}
 	
-	public void ajouterPlat(plats p) {
+	public void ajouterPlat(Plat p) {
 		commandes.add(p);
 	}
 	
