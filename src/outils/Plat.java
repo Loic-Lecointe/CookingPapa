@@ -1,12 +1,13 @@
 package outils;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Plat {
 	private static int cpt = 0;
 	private int id;
 	private String name;
-	private ArrayList<Ingredient> ingredients;
+	private List<Ingredient> ingredients;
 	private int points;
 	
 	public Plat(String name, int points, ArrayList<Ingredient> ingredients) {
@@ -32,11 +33,11 @@ public class Plat {
 		this.name = name;
 	}
 
-	public ArrayList<Ingredient> getIngredients() {
+	public List<Ingredient> getIngredients() {
 		return ingredients;
 	}
 
-	public void setIngredients(ArrayList<Ingredient> ingredients) {
+	public void setIngredients(List<Ingredient> ingredients) {
 		this.ingredients = ingredients;
 	}
 
