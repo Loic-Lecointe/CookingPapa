@@ -50,8 +50,9 @@ public class Plat {
 
 	@Override
 	public String toString() {
-		return "Plat [id=" + id + ", name=" + name + ", points=" + points + "]";
+		return "Plat [id=" + id + ", name=" + name + ", ingredients=" + ingredients + ", points=" + points + "]";
 	}
+
 	
 	
 	
