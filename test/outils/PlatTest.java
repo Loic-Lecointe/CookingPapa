@@ -3,6 +3,8 @@ import outils.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.ArrayList;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +14,9 @@ public class PlatTest {
 	
 	@BeforeEach
 	void Initialization() {
-		plat = new Plat("p",1);
+		ArrayList<Ingredient> ingredients = new ArrayList<>();
+		ingredients.toArray(Ingredient.values());
+		plat = new Plat("p",1,ingredients);
 		
 	}
 	

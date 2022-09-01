@@ -23,6 +23,7 @@ public class Calcul_score {
 		return temps_de_jeu;
 	}
 	
+
 	public int getScore() {
 		return score;
 	}

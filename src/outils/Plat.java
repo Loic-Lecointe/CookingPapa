@@ -10,10 +10,10 @@ public class Plat {
 	private List<Ingredient> ingredients;
 	private int points;
 	
-	public Plat(String name, int points) {
+	public Plat(String name, int points, ArrayList<Ingredient> ingredients) {
 		id = cpt++;
 		this.name = name;
-		this.ingredients = new ArrayList<>();
+		this.ingredients = ingredients;
 		this.points = points;
 	}
 

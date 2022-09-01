@@ -1,4 +1,4 @@
-package src.outils;
+package outils;
 import java.util.ArrayList;
 
 public class listeCommandes {
