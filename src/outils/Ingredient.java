@@ -1,4 +1,4 @@
-package src.outils;
+package outils;
 
 public enum Ingredient {
 	PATE_A_PIZZA("pâte à pizza",'p'), SAUCE_TOMATE("sauce tomate",'s'), JAMBON("jambon",'j');
