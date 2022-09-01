@@ -22,8 +22,8 @@ class CookInputTest {
 		ingredients.add(Ingredient.PATE_A_PIZZA);
 		ingredients.add(Ingredient.SAUCE_TOMATE);
 		ingredients.add(Ingredient.JAMBON);
-		pizza.setIngredients(ingredients);
 		pizza = new Plat("Pizza", 0, ingredients);
+		pizza.setIngredients(ingredients);
 	}
 	
 	@Test
