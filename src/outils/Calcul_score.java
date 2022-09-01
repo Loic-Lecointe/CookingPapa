@@ -19,13 +19,6 @@ public class Calcul_score {
 		return time_start - time_end;
 	}
 	
-	public int calcul_plats_reussi() {
-		int r = 
-	}
-	
-	public int calcul_plats_echoue() {
-		int e = 
-	}
 	
 	
 	public int getScore() {
