@@ -15,9 +15,6 @@ import outils.TableauScores;
 public class Menu {
 		static Scanner sc = new Scanner(System.in);
 		static int choix = 0;
-		public static void menuPrincipal() {
-			
-		}
 		
 		public static void AfficherLogo() {
 		String path = System.getProperty("user.dir")+"/src/main/";
