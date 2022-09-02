@@ -1,0 +1,15 @@
+Bienvenue sur les regles de Cooking Papa! 
+
+Dans ce jeu vous devez repondre aux commandes des differents clients avant qu'ils ne perdent patience!
+
+Pour ce faire vous allez devoir naviguer et choisir les commandes grace a vos entrees clavier.
+
+Le but est donc de selectionner la commande que vous souhaitez preparer afin de passer sur le menu de preparation.
+
+Le menu de preparation est compose de : 
+
+- La commande a realiser
+- La liste des entrees possible 
+  Chaque lettre correspond a un ingredient, l'entree finale doit etre la phrase avec tous les raccourcis des ingredients. 
+  
+Plus vous le faites rapidement, plus vous aurez de points, si vous faites une erreur vous en perdez, simple non?

@@ -5,10 +5,36 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Scanner;
 
 public class Menu {
-	
-	  public static void AfficherLogo() {
+		static Scanner sc = new Scanner(System.in);
+		static int choix = 0;
+		public static void menuPrincipal() {
+			for(int i = 0; i < 5; i++) {
+				System.out.println();
+			}
+			
+			printPath("/donnees/menu");
+			
+			while((choix = sc.nextInt())>4 || choix<0) {}			
+			if(choix == 1) {
+				//lance le jeu
+			} else if (choix == 2) {
+				printPath("/donnees/regles");
+			} else if (choix == 3) {
+				//affiche le scoreboard
+			} else {
+				System.out.println("Au revoir");
+				System.exit(0);
+			}
+		}
+		
+		public static void AfficherLogo() {
 		String path = System.getProperty("user.dir")+"/src/main/";
 		try (FileInputStream fstream =new FileInputStream(path+"logo.txt");BufferedReader br = new BufferedReader(new InputStreamReader(fstream));){
 			String strLine;
@@ -21,6 +47,7 @@ public class Menu {
 
 			  //Close the input stream
 			  fstream.close();
+			  menuPrincipal();
 			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -32,7 +59,7 @@ public class Menu {
 			System.exit(0);
 
 		}
-
+		
 		  
 	  }
 	  
@@ -43,4 +70,23 @@ public class Menu {
 	public static void main(String[] args) {
 		start();
 	}
+	
+	
+	/**
+	 * Method to print a file
+	 * @param file
+	 */
+	public static void printPath(String file) {
+		Path path = Paths.get(System.getProperty("user.dir")+file);
+		try {
+			for(String ligne : Files.readAllLines(path)) {
+				System.out.println(ligne);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+			System.exit(0);
+		}
+		
+	}
+
 }
