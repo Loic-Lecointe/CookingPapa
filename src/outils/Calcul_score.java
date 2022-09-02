@@ -41,21 +41,16 @@ public class Calcul_score {
 			if(temps_joue > this.time_objectif * 60) {
 				score = score + ((time_objectif*60) - temps_joue);
 			}
+		}
 			for(int i =0;i < plats_reussi;i++) {
 				score = score +100;
 			}
 			for(int i =0;i < plats_echoue;i++) {
 				score = score -50;
-			}
-		}else {
-			for(int i =0;i < plats_reussi;i++) {
-				score = score +100;
-			}
-			for(int i =0;i < plats_echoue;i++) {
-				score = score -50;
-			}
+			
 		}
 	
 		return score;
 	}
+	
 }
