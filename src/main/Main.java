@@ -3,6 +3,7 @@ package main;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Scanner;
 
 import outils.*;
 
@@ -64,7 +65,13 @@ public class Main {
 		LocalDateTime finDuJeu = LocalDateTime.now();
 		System.out.println("Fin");
 		Calcul_score score = new Calcul_score(debutDuJeu, finDuJeu, plats_reussi, plats_echoue,5);
-		System.out.println("Votre score est de :" + score.calcul_score_final(false));
+		System.out.println("Votre score est de : " + score.calcul_score_final(false)+".\nEntrez un nom ou un pseudo pour être enregistré sur le leaderboard :");
+		Scanner sc = new Scanner(System.in);
+		String input = sc.nextLine();
+		ArrayList<Joueur> leaderboard = TableauScores.loadScores();
+		leaderboard.add(new Joueur(input,score.calcul_score_final(false)));
+		TableauScores.saveScores(leaderboard);
+		System.out.println("Score enregistré. Merci d'avoir joué !");
 	}
 	
 	private static void addNewPlat() {
