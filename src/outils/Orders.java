@@ -19,7 +19,7 @@ public class Orders {
 	
 	public void remove(int index) {
 		for (int i = index; i < orders.length - 1; i++) {
-			orders[index] =  orders[index + 1];
+			orders[i] =  orders[i + 1];
 		}
 		orders[orders.length - 1] = null;
 	}
@@ -27,9 +27,10 @@ public class Orders {
 	@Override
 	public String toString() {
 		StringBuilder res = new StringBuilder();
-		for (int i = 0; i < orders.length; i++) {
-			if (orders[i] != null)
-				res.append(i+1 + ": " + orders[i].getName() + " (" + (i + 1) + ")\n");
+		int i = 0;
+		while (orders[i] != null && i < orders.length - 1) {
+			res.append(i+1 + ": " + orders[i].getName() + " (" + (i + 1) + ")\n");
+			i++;
 		}
 		return res.toString();
 	}

@@ -21,24 +21,23 @@ public class Main {
 		
 		int totalOrders = 0;
 		
-		Plat plat = new Plat("Pizza",100,ingredients);
 		
-		while (completedOrders < NB_ORDERS_GAME) {
+		
+		while (completedOrders <= NB_ORDERS_GAME) {
 			
 			ActionInput it = new ActionInput();
 			it.start();
 			
 			Date oldDate = new Date(), date;
-			
-			System.out.println(totalOrders);
-			
+						
 			while (it.getInput() == null) {
 				date = new Date();
 
 				if (date.getTime() - oldDate.getTime() > 1000) {
 					oldDate = date;
 					
-					if (totalOrders < NB_ORDERS_GAME && orders.add(plat)) {
+					Plat plat = new Plat("Pizza",100,ingredients);
+					if (totalOrders <= NB_ORDERS_GAME && orders.add(plat)) {
 						totalOrders++;
 					}
 					
@@ -47,7 +46,7 @@ public class Main {
 				}
 			}
 			
-			takeOrder(Integer.valueOf(it.getInput()));
+			takeOrder(Integer.valueOf(it.getInput()) - 1);
 		}
 		
 		System.out.println("Fin");
