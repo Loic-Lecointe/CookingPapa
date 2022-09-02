@@ -1,7 +1,9 @@
-package src.outils;
+package outils;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import outils.Ingredient;
 
 public interface OptionalIngredient {
 	

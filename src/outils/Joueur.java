@@ -4,7 +4,6 @@ public class Joueur implements Comparable<Joueur>{
 	private String name;
 	private int score;
 	
-	
 	public Joueur(String name, int score) {
 		this.name = name;
 		this.score = score;
@@ -21,6 +20,7 @@ public class Joueur implements Comparable<Joueur>{
 		return score;
 	}
 
+	
 
 	@Override
 	public String toString() {
