@@ -44,6 +44,10 @@ public class Plat {
 		this.ingredientsOptionnels = optionnel;
 	}
 	
+	public Plat(Plat copie) {
+		this(copie.name,copie.ingredientsObligatoire,copie.ingredientsOptionnels);
+	}
+	
 	public Plat() {
 		this(null,0);
 	}
@@ -52,10 +56,11 @@ public class Plat {
 	public void generateIngredients(int difficulte) {
 		Random rdm = new Random();
 		int nb = rdm.nextInt(difficulte);
-		Ingredient[] tab = Ingredient.values();
+		this.ingredients.addAll(ingredientsObligatoire);
 		for(int i = 0; i<nb; i++) {
-			this.ingredients.add(tab[rdm.nextInt(tab.length)]);
+			this.ingredients.add(ingredientsOptionnels.get(rdm.nextInt(ingredientsOptionnels.size())));
 		}
+		System.out.println(this.ingredients);
 	}
 	@JsonIgnore
 	public int getId() {

@@ -3,12 +3,14 @@ package main;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 import outils.*;
 
 public class Main {
-	
+	static List<Plat> listePlat = LoadPlat.loadListePlat();
 	static Orders orders = new Orders();
 	static int totalOrders = 0;
 	public static final int NB_ORDERS_GAME = 5;
@@ -75,11 +77,9 @@ public class Main {
 	}
 	
 	private static void addNewPlat() {
-		ArrayList<Ingredient> ingredients = new ArrayList<>();
-		for(int i = 0; i < 5; i++) {
-			ingredients.add(Ingredient.values()[i]);
-		}
-		Plat plat = new Plat("Pizza",100, ingredients);
+		
+		Random rdm = new Random();
+		Plat plat = new Plat(listePlat.get(rdm.nextInt(2)));
 		
 		if (totalOrders < NB_ORDERS_GAME && orders.add(plat)) {
 			totalOrders++;
