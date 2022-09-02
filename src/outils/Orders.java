@@ -21,6 +21,7 @@ public class Orders {
 		for (int i = index; i < orders.length - 1; i++) {
 			orders[i] =  orders[i + 1];
 		}
+		nbOrders--;
 		orders[orders.length - 1] = null;
 	}
 
