@@ -21,7 +21,7 @@ public class Main {
 		
 		int totalOrders = 0;
 		
-		while (completedOrders <= NB_ORDERS_GAME) {
+		while (completedOrders < NB_ORDERS_GAME) {
 			
 			ActionInput it = new ActionInput();
 			it.start();
@@ -35,7 +35,7 @@ public class Main {
 					oldDate = date;
 					
 					Plat plat = new Plat("Pizza",100,ingredients);
-					if (totalOrders <= NB_ORDERS_GAME && orders.add(plat)) {
+					if (totalOrders < NB_ORDERS_GAME && orders.add(plat)) {
 						totalOrders++;
 					}
 					
