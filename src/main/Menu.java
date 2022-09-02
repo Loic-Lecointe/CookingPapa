@@ -28,12 +28,14 @@ public class Menu {
 		if(choix == 1) {
 			return;
 		} else if (choix == 2) {
+			Main.clearScreen();
 			printPath("/donnees/regles");
 			System.out.print("\n\nVeuillez appuyer sur entr�e pour revenir au menu");
 			sc = new Scanner(System.in);
 			sc.nextLine();
 			start();
 		} else if (choix == 3) {
+			Main.clearScreen();
 			TableauScores.printScores();
 			System.out.print("\n\nVeuillez appuyer sur entr�e pour revenir au menu");
 			sc = new Scanner(System.in);
