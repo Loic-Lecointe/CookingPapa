@@ -1,8 +1,7 @@
 package outils;
 
 public enum Ingredient {
-
-	PATE_A_PIZZA("p�te � pizza",'p'), SAUCE_TOMATE("sauce tomate",'s'), JAMBON("jambon",'j'), CHAMPIGNON("champignon",'c');
+	PATE_A_PIZZA("pate a pizza",'p'), SAUCE_TOMATE("sauce tomate",'s'), JAMBON("jambon",'j');
 	
 	private final String name;
 	private final char shortcut;

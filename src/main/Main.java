@@ -21,7 +21,9 @@ public class Main {
 		
 		int totalOrders = 0;
 		
-		while (completedOrders < NB_ORDERS_GAME) {
+		
+		
+		while (completedOrders <= NB_ORDERS_GAME) {
 			
 			ActionInput it = new ActionInput();
 			it.start();
@@ -35,12 +37,11 @@ public class Main {
 					oldDate = date;
 					
 					Plat plat = new Plat("Pizza",100,ingredients);
-					if (totalOrders < NB_ORDERS_GAME && orders.add(plat)) {
+					if (totalOrders <= NB_ORDERS_GAME && orders.add(plat)) {
 						totalOrders++;
 					}
 					
 					clearScreen();
-					System.out.println("Commandes:");
 					System.out.println(orders);
 				}
 			}
@@ -52,16 +53,11 @@ public class Main {
 	}
 	
 	public static void takeOrder(int index) {
-		Plat order = orders.get(index);
-		
-		System.out.println("Plat: " + order.getName());
-		System.out.println("Ingrédients: " + order.getIngredients() + "\n");
-		
 		System.out.println("Liste des inputs:");
-		System.out.println(order.getIngredientsShortcut());
+		System.out.println(orders.get(index).getIngredientsShortcut());
 		completedOrders++;
 
-		String finish = CookInput.isCorrect(order)?"Bravo vous avez r�ussi":"Vous avez perdu";
+		String finish = CookInput.isCorrect(orders.get(index))?"Bravo vous avez r�ussi":"Vous avez perdu";
 		orders.remove(index);
 		System.out.println(finish);
 	}
