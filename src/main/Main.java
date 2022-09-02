@@ -1,9 +1,9 @@
-package main;
+package src.main;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import outils.*;
+import src.outils.*;
 
 public class Main {
 	static Scanner sc = new Scanner(System.in);
