@@ -16,32 +16,6 @@ public class Menu {
 		static Scanner sc = new Scanner(System.in);
 		static int choix = 0;
 		public static void menuPrincipal() {
-			for(int i = 0; i < 5; i++) {
-				System.out.println();
-			}
-			
-			printPath("/donnees/menu");
-			
-			while((choix = sc.nextInt())>4 || choix<0) {}			
-
-			if(choix == 1) {
-				return;
-			} else if (choix == 2) {
-				printPath("/donnees/regles");
-				System.out.print("\n\nVeuillez appuyer sur entrée pour revenir au menu");
-				sc = new Scanner(System.in);
-				sc.nextLine();
-				Main.clearScreen();
-				menuPrincipal();
-			} else if (choix == 3) {
-				TableauScores.printScores();
-				sc = new Scanner(System.in);
-				sc.nextLine();
-
-			} else {
-				System.out.println("Au revoir");
-				System.exit(0);
-			}
 			
 		}
 		
@@ -57,9 +31,7 @@ public class Menu {
 			  }
 
 			  //Close the input stream
-			  fstream.close();
-			  menuPrincipal();
-			
+			  fstream.close();			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -75,12 +47,33 @@ public class Menu {
 	  }
 	  
 	public static void start() {
-		AfficherLogo();
-	}
-	
-	public static void main(String[] args) {
-		start();
-		sc.close();
+		Main.clearScreen();
+		
+		printPath("/src/main/logo.txt");
+		
+		printPath("/donnees/menu");
+		
+		while((choix = sc.nextInt())>4 || choix<0) {}			
+
+		if(choix == 1) {
+			return;
+		} else if (choix == 2) {
+			printPath("/donnees/regles");
+			System.out.print("\n\nVeuillez appuyer sur entrï¿½e pour revenir au menu");
+			sc = new Scanner(System.in);
+			sc.nextLine();
+			start();
+		} else if (choix == 3) {
+			TableauScores.printScores();
+			System.out.print("\n\nVeuillez appuyer sur entrï¿½e pour revenir au menu");
+			sc = new Scanner(System.in);
+			sc.nextLine();
+			start();
+
+		} else {
+			System.out.println("Au revoir");
+			System.exit(0);
+		}
 	}
 	
 	
