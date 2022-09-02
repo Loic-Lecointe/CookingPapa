@@ -87,6 +87,8 @@ public class Main {
 	public static void takeOrder(int index) {
 		Plat order = orders.get(index);
 		
+		clearScreen();
+		
 		System.out.println("Plat: " + order.getName());
 		System.out.println("Ingrédients: " + order.getIngredients() + "\n");
 		
