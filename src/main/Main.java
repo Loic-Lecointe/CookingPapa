@@ -56,9 +56,9 @@ public class Main {
 		System.out.println("Liste des inputs:");
 		System.out.println(orders.get(index).getIngredientsShortcut());
 		completedOrders++;
-		orders.remove(index);
 
 		String finish = CookInput.isCorrect(orders.get(index))?"Bravo vous avez r�ussi":"Vous avez perdu";
+		orders.remove(index);
 		System.out.println(finish);
 	}
 	

@@ -28,7 +28,7 @@ public class Orders {
 	public String toString() {
 		StringBuilder res = new StringBuilder();
 		int i = 0;
-		while (orders[i] != null && i < orders.length - 1) {
+		while (i < MAX_ORDERS && orders[i] != null) {
 			res.append(i+1 + ": " + orders[i].getName() + " (" + (i + 1) + ")\n");
 			i++;
 		}
