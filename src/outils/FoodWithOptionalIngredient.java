@@ -3,9 +3,6 @@ package outils;
 import java.util.ArrayList;
 import java.util.List;
 
-import outils.Ingredient;
-import outils.Plat;
-
 public class FoodWithOptionalIngredient extends Plat implements OptionalIngredient {
 	private List<Ingredient> optionalIngredient;
 
