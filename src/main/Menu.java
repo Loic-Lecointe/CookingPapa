@@ -11,6 +11,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Scanner;
 
+import outils.TableauScores;
+
 public class Menu {
 		static Scanner sc = new Scanner(System.in);
 		static int choix = 0;
@@ -22,12 +24,13 @@ public class Menu {
 			printPath("/donnees/menu");
 			
 			while((choix = sc.nextInt())>4 || choix<0) {}			
+
 			if(choix == 1) {
-				//lance le jeu
+				return;
 			} else if (choix == 2) {
 				printPath("/donnees/regles");
 			} else if (choix == 3) {
-				//affiche le scoreboard
+				TableauScores.printScores();
 			} else {
 				System.out.println("Au revoir");
 				System.exit(0);

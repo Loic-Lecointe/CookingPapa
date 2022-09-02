@@ -17,6 +17,7 @@ public class Main {
 	private static int plats_echoue;
 	
 	public static void main(String[] args) {
+		Menu.start();
 		
 		LocalDateTime debutDuJeu = LocalDateTime.now();
 		
