@@ -44,6 +44,11 @@ public class Plat {
 		this.ingredientsOptionnels = optionnel;
 	}
 	
+	public Plat() {
+		this(null,0);
+	}
+	
+	
 	public void generateIngredients(int difficulte) {
 		Random rdm = new Random();
 		int nb = rdm.nextInt(difficulte);

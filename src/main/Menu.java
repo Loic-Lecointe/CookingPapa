@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import outils.TableauScores;
@@ -19,27 +20,27 @@ public class Menu {
 		
 		printPath("/donnees/menu");
 		
-		while((choix = sc.nextInt())>4 || choix<0) {}			
-
+		Verification();
 		if(choix == 1) {
 			return;
 		} else if (choix == 2) {
 			Main.clearScreen();
 			printPath("/donnees/regles");
-			System.out.print("\n\nVeuillez appuyer sur entr�e pour revenir au menu");
+			System.out.print("\n\nVeuillez appuyer sur entree pour revenir au menu");
 			sc = new Scanner(System.in);
 			sc.nextLine();
 			start();
 		} else if (choix == 3) {
 			Main.clearScreen();
 			TableauScores.printScores();
-			System.out.print("\n\nVeuillez appuyer sur entr�e pour revenir au menu");
+			System.out.print("\n\nVeuillez appuyer sur entree pour revenir au menu");
 			sc = new Scanner(System.in);
 			sc.nextLine();
 			start();
 
 		} else {
 			System.out.println("Au revoir");
+			sc.close();
 			System.exit(0);
 		}
 	}
@@ -60,6 +61,18 @@ public class Menu {
 			System.exit(0);
 		}
 		
+	}
+	
+	public static int Verification(){
+		try {
+			sc = new Scanner(System.in);
+			while((choix = sc.nextInt())>4 || choix<0) {}	
+			
+		} catch (InputMismatchException e) {
+			System.out.println("Tu ne peux pas mettre de lettres!");
+			Verification();
+		}
+		return choix;
 	}
 
 }
