@@ -22,6 +22,7 @@ public class Orders {
 			orders[i] =  orders[i + 1];
 		}
 		orders[orders.length - 1] = null;
+		nbOrders--;
 	}
 	
 	public void removeDelayedOrders() {
