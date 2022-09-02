@@ -53,8 +53,14 @@ public class Plat {
 	public String toString() {
 		return "Plat [id=" + id + ", name=" + name + ", ingredients=" + ingredients + ", points=" + points + "]";
 	}
-
 	
-	
-	
+	public String getIngredientsShortcut() {
+		StringBuilder res = new StringBuilder();
+		
+		for(int i = 0; i < getIngredients().size();i++) {
+			res.append(getIngredients().get(i) + "\n");
+		}
+		
+		return res.toString();
+	}
 }
