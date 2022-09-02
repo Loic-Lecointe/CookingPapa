@@ -36,6 +36,8 @@ public class Main {
 			
 			double randomTime = Math.random() * 7 + 5;
 			
+			printHUD();
+			
 			while (it.getInput() == null && !isFinished()) {
 				date = new Date();
 				
@@ -67,8 +69,8 @@ public class Main {
 	
 	private static void addNewPlat() {
 		ArrayList<Ingredient> ingredients = new ArrayList<>();
-		for(Ingredient e : Ingredient.values()) {
-			ingredients.add(e);
+		for(int i = 0; i < 5; i++) {
+			ingredients.add(Ingredient.values()[i]);
 		}
 		Plat plat = new Plat("Pizza",100, ingredients);
 		
