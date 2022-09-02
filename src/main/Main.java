@@ -1,9 +1,9 @@
-package src.main;
+package main;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import src.outils.*;
+import outils.*;
 
 public class Main {
 	static Scanner sc = new Scanner(System.in);
@@ -14,8 +14,8 @@ public class Main {
 			ingredients.add(e);
 		}
 		
-		Plat plat = new Plat("Pizza",100,ingredients);
-		System.out.println("Commade n1 : " + plat.toString());
+		Plat plat = new Plat("Pizza",100);
+		System.out.println("Commande n1 : " + plat.toString());
 		System.out.println("Listes des inputs :");
 		for(int i = 0; i < plat.getIngredients().size();i++) {
 			System.out.println(plat.getIngredients().get(i));
