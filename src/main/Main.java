@@ -29,19 +29,26 @@ public class Main {
 			ActionInput it = new ActionInput();
 			it.start();
 			
-			Date oldDate = new Date(), date;
+			Date date;
+			Date refreshDate = new Date();
+			Date orderDate = new Date();
+			
+			double randomTime = Math.random() * 7 + 5;
 			
 			while (it.getInput() == null && !isFinished()) {
 				date = new Date();
-
-				if (date.getTime() - oldDate.getTime() > 1000) {
-					oldDate = date;
-					
+				
+				if (date.getTime() - orderDate.getTime() > randomTime * 1000) {
+					randomTime = Math.random() * 3 + 2;
+					orderDate = date;
 					Plat plat = new Plat("Pizza",100,ingredients);
 					if (totalOrders < NB_ORDERS_GAME && orders.add(plat)) {
 						totalOrders++;
 					}
-					
+				}
+				
+				if (date.getTime() - refreshDate.getTime() > 1000) {
+					refreshDate = date;				
 					printHUD();
 				}
 			}
