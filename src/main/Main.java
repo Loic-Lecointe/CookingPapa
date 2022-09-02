@@ -19,10 +19,6 @@ public class Main {
 	public static void main(String[] args) {
 		
 		LocalDateTime debutDuJeu = LocalDateTime.now();
-		ArrayList<Ingredient> ingredients = new ArrayList<>();
-		for(Ingredient e : Ingredient.values()) {
-			ingredients.add(e);
-		}
 		
 		while (!isFinished()) {
 			
@@ -33,6 +29,10 @@ public class Main {
 			Date refreshDate = new Date();
 			Date orderDate = new Date();
 			
+			// Ajoute quelques plats à servir au début de la partie
+			for (int i = 0; i < Math.random() * 3 + 1; i++)	
+				addNewPlat();
+			
 			double randomTime = Math.random() * 7 + 5;
 			
 			while (it.getInput() == null && !isFinished()) {
@@ -41,10 +41,7 @@ public class Main {
 				if (date.getTime() - orderDate.getTime() > randomTime * 1000) {
 					randomTime = Math.random() * 3 + 2;
 					orderDate = date;
-					Plat plat = new Plat("Pizza",100,ingredients);
-					if (totalOrders < NB_ORDERS_GAME && orders.add(plat)) {
-						totalOrders++;
-					}
+					addNewPlat();
 				}
 				
 				if (date.getTime() - refreshDate.getTime() > 1000) {
@@ -67,6 +64,18 @@ public class Main {
 		System.out.println("Votre score est de :" + score.calcul_score_final(false));
 	}
 	
+	private static void addNewPlat() {
+		ArrayList<Ingredient> ingredients = new ArrayList<>();
+		for(Ingredient e : Ingredient.values()) {
+			ingredients.add(e);
+		}
+		Plat plat = new Plat("Pizza",100, ingredients);
+		
+		if (totalOrders < NB_ORDERS_GAME && orders.add(plat)) {
+			totalOrders++;
+		}
+	}
+
 	public static void printHUD() {
 		orders.removeDelayedOrders();
 		clearScreen();
