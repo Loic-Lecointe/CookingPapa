@@ -27,10 +27,14 @@ public class Orders {
 	@Override
 	public String toString() {
 		StringBuilder res = new StringBuilder();
-		int i = 0;
-		while (i < MAX_ORDERS && orders[i] != null) {
-			res.append(i+1 + ": " + orders[i].getName() + " (" + (i + 1) + ")\n");
-			i++;
+		for (int i = 0; i < MAX_ORDERS; i++) {
+			res.append(i+1 + ": ");
+			if (orders[i] != null) {
+				res.append(orders[i].getName() + " (" + (i + 1) + ")");
+			} else {
+				res.append("_________");
+			}
+			res.append("\n");
 		}
 		return res.toString();
 	}
