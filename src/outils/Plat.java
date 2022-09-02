@@ -1,44 +1,29 @@
 package outils;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-@JsonIgnoreProperties(value = {"cpt","id","ingredients","points"})
 public class Plat {
-	@JsonIgnore
+	private final static int TIME_BEFORE_LEAVING = 5;
 	private static int cpt = 0;
-	@JsonIgnore
 	private int id;
 	private String name;
-	private List<String> ingredientsObligatoire;
-	private List<String> ingredientsOptionnels;
-	@JsonIgnore
+	private final Date time_start = new Date();
 	private List<Ingredient> ingredients;
-	@JsonIgnore
 	private int points;
 	
 	public Plat(String name, int points) {
 		id = cpt++;
 		this.name = name;
 		this.ingredients = new ArrayList<>();
-		this.ingredientsObligatoire = new ArrayList<>();
-		this.ingredientsOptionnels = new ArrayList<>();
 		this.points = points;
 	}
 	
 	public Plat(String name, int points, ArrayList<Ingredient> ingredient) {
 		this(name,points);
 		this.ingredients = ingredient;
-	}
-	
-	public Plat(String name, List<String> ingredi, List<String>optionnel) {
-		this(name,0);
-		this.ingredientsObligatoire = ingredi;
-		this.ingredientsOptionnels = optionnel;
 	}
 	
 	public void generateIngredients(int difficulte) {
@@ -49,7 +34,7 @@ public class Plat {
 			this.ingredients.add(tab[rdm.nextInt(tab.length)]);
 		}
 	}
-	@JsonIgnore
+
 	public int getId() {
 		return id;
 	}
@@ -57,7 +42,7 @@ public class Plat {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
+
 	public String getName() {
 		return name;
 	}
@@ -65,8 +50,7 @@ public class Plat {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	@JsonIgnore
+
 	public List<Ingredient> getIngredients() {
 		return ingredients;
 	}
@@ -74,7 +58,7 @@ public class Plat {
 	public void setIngredients(List<Ingredient> ingredients) {
 		this.ingredients = ingredients;
 	}
-	@JsonIgnore
+
 	public int getPoints() {
 		return points;
 	}
@@ -96,5 +80,14 @@ public class Plat {
 		}
 		
 		return res.toString();
+	}
+	
+	public long getTimeBeforeLeaving() {
+		Date now = new Date();
+		return TIME_BEFORE_LEAVING - (now.getTime() - time_start.getTime()) / 1000;
+	}
+	
+	public boolean isDelayed() {
+		return getTimeBeforeLeaving() <= 0;
 	}
 }

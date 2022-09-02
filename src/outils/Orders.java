@@ -18,19 +18,34 @@ public class Orders {
 	}
 	
 	public void remove(int index) {
-		for (int i = index; i < orders.length - 1; i++) {
+		for (int i = index; i < MAX_ORDERS - 1; i++) {
 			orders[i] =  orders[i + 1];
 		}
 		orders[orders.length - 1] = null;
+	}
+	
+	public void removeDelayedOrders() {
+		int i = 0;
+		while (i < nbOrders) {
+			if (orders[i].isDelayed()) {
+				remove(i);
+			} else {
+				i++;
+			}
+		}
 	}
 
 	@Override
 	public String toString() {
 		StringBuilder res = new StringBuilder();
-		int i = 0;
-		while (i < MAX_ORDERS && orders[i] != null) {
-			res.append(i+1 + ": " + orders[i].getName() + " (" + (i + 1) + ")\n");
-			i++;
+		for (int i = 0; i < MAX_ORDERS; i++) {
+			res.append(i+1 + ": ");
+			if (orders[i] != null) {
+				res.append(orders[i].getName() + " (" + (i + 1) + ") " + orders[i].getTimeBeforeLeaving());
+			} else {
+				res.append("_________");
+			}
+			res.append("\n");
 		}
 		return res.toString();
 	}
