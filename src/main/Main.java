@@ -10,6 +10,7 @@ import outils.*;
 public class Main {
 	
 	static Orders orders = new Orders();
+	static int totalOrders = 0;
 	public static final int NB_ORDERS_GAME = 5;
 	public static int completedOrders = 0;
 	static Scanner sc = new Scanner(System.in);
@@ -24,16 +25,14 @@ public class Main {
 			ingredients.add(e);
 		}
 		
-		int totalOrders = 0;
-		
-		while (completedOrders <= NB_ORDERS_GAME) {
+		while (!isFinished()) {
 			
 			ActionInput it = new ActionInput();
 			it.start();
 			
 			Date oldDate = new Date(), date;
 						
-			while (it.getInput() == null) {
+			while (it.getInput() == null && !isFinished()) {
 				date = new Date();
 
 				if (date.getTime() - oldDate.getTime() > 1000) {
@@ -42,7 +41,7 @@ public class Main {
 					orders.removeDelayedOrders();
 					
 					Plat plat = new Plat("Pizza",100,ingredients);
-					if (totalOrders <= NB_ORDERS_GAME && orders.add(plat)) {
+					if (totalOrders < NB_ORDERS_GAME && orders.add(plat)) {
 						totalOrders++;
 					}
 					
@@ -52,8 +51,11 @@ public class Main {
 				}
 			}
 			
-			takeOrder(Integer.valueOf(it.getInput()) - 1);
+			if (it.getInput() != null) {
+				takeOrder(Integer.valueOf(it.getInput()) - 1);
+			}
 		}
+		
 		LocalDateTime finDuJeu = LocalDateTime.now();
 		System.out.println("Fin");
 		Calcul_score score = new Calcul_score(debutDuJeu, finDuJeu, plats_reussi, plats_echoue,5);
@@ -87,4 +89,7 @@ public class Main {
 		}
 	}
 	
+	public static boolean isFinished() {
+		return totalOrders == NB_ORDERS_GAME && orders.getNbOrders() == 0;
+	}
 }

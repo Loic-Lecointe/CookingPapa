@@ -9,6 +9,10 @@ public class Orders {
 		return orders[index];
 	}
 	
+	public int getNbOrders() {
+		return nbOrders;
+	}
+	
 	public boolean add(Plat order) {
 		if (MAX_ORDERS == nbOrders) {
 			return false;
