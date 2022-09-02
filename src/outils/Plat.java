@@ -1,6 +1,7 @@
 package outils;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -9,11 +10,13 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(value = {"cpt","id","ingredients","points"})
 public class Plat {
+	private final static int TIME_BEFORE_LEAVING = 5;
 	@JsonIgnore
 	private static int cpt = 0;
 	@JsonIgnore
 	private int id;
 	private String name;
+	private final Date time_start = new Date();
 	private List<String> ingredientsObligatoire;
 	private List<String> ingredientsOptionnels;
 	@JsonIgnore
@@ -97,4 +100,14 @@ public class Plat {
 		
 		return res.toString();
 	}
+	
+	public long getTimeBeforeLeaving() {
+		Date now = new Date();
+		return TIME_BEFORE_LEAVING - (now.getTime() - time_start.getTime()) / 1000;
+	}
+	
+	public boolean isDelayed() {
+		return getTimeBeforeLeaving() <= 0;
+	}
+
 }
