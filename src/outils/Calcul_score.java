@@ -11,7 +11,7 @@ public class Calcul_score {
 	private int score;
 	private int plats_reussi;
 	private int plats_echoue;
-	int time_objectif;
+	private int time_objectif;
 	
 	public Calcul_score(LocalDateTime time_start, LocalDateTime time_end, int plats_reussi, int plats_echoue, int time_objectif) {
 		this.time_start = time_start;
@@ -31,21 +31,31 @@ public class Calcul_score {
 		return score;
 	}
 
-	public int calcul_score_final() {
+	public int calcul_score_final(boolean infinit) {
 		score = 0;
-		int temps_joue = (int)calcul_temps_joue();
-		if(temps_joue < this.time_objectif * 60) {
-			score = score + ((time_objectif*60) - temps_joue)*2;
+		if(!infinit) {
+			int temps_joue = (int)calcul_temps_joue();
+			if(temps_joue < this.time_objectif * 60) {
+				score = score + ((time_objectif*60) - temps_joue)*2;
+			}
+			if(temps_joue > this.time_objectif * 60) {
+				score = score + ((time_objectif*60) - temps_joue);
+			}
+			for(int i =0;i < plats_reussi;i++) {
+				score = score +100;
+			}
+			for(int i =0;i < plats_echoue;i++) {
+				score = score -50;
+			}
+		}else {
+			for(int i =0;i < plats_reussi;i++) {
+				score = score +100;
+			}
+			for(int i =0;i < plats_echoue;i++) {
+				score = score -50;
+			}
 		}
-		if(temps_joue > this.time_objectif * 60) {
-			score = score + ((time_objectif*60) - temps_joue);
-		}
-		for(int i =0;i < plats_reussi;i++) {
-			score = score +100;
-		}
-		for(int i =0;i < plats_echoue;i++) {
-			score = score +50;
-		}
+	
 		return score;
 	}
 }

@@ -1,5 +1,6 @@
 package main;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
@@ -12,8 +13,12 @@ public class Main {
 	public static final int NB_ORDERS_GAME = 5;
 	public static int completedOrders = 0;
 	static Scanner sc = new Scanner(System.in);
+	private static int plats_reussi;
+	private static int plats_echoue;
 	
 	public static void main(String[] args) {
+		
+		LocalDateTime debutDuJeu = LocalDateTime.now();
 		ArrayList<Ingredient> ingredients = new ArrayList<>();
 		for(Ingredient e : Ingredient.values()) {
 			ingredients.add(e);
@@ -47,8 +52,10 @@ public class Main {
 			
 			takeOrder(Integer.valueOf(it.getInput()) - 1);
 		}
-		
+		LocalDateTime finDuJeu = LocalDateTime.now();
 		System.out.println("Fin");
+		Calcul_score score = new Calcul_score(debutDuJeu, finDuJeu, plats_reussi, plats_echoue,5);
+		System.out.println("Votre score est de :" + score.calcul_score_final(false));
 	}
 	
 	public static void takeOrder(int index) {
@@ -60,8 +67,14 @@ public class Main {
 		System.out.println("Liste des inputs:");
 		System.out.println(order.getIngredientsShortcut());
 		completedOrders++;
-
-		String finish = CookInput.isCorrect(order)?"Bravo vous avez r�ussi":"Vous avez perdu";
+		String finish = "";
+		if(CookInput.isCorrect(order)) {
+			plats_reussi++;
+			finish = "Bravo vous avez reussi";
+		}else {
+			plats_echoue++;
+			finish = "Tu es null";
+		}
 		orders.remove(index);
 		System.out.println(finish);
 	}
