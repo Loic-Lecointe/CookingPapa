@@ -11,7 +11,6 @@ import outils.TableauScores;
 
 public class TableauScoresTest {
 	
-	static TableauScores tab;
 	static ArrayList<Joueur> joueurs;
 	
 	@BeforeAll
@@ -21,15 +20,12 @@ public class TableauScoresTest {
 		joueurs = new ArrayList<Joueur>();
 		joueurs.add(joueur1);
 		joueurs.add(joueur2);
-		tab = new TableauScores();
-		
-
 	}
 	
 	@Test
 	void test() {
-		tab.saveScores(joueurs);
-		ArrayList<Joueur> joueursSerialised = tab.loadScores();
+		TableauScores.saveScores(joueurs);
+		ArrayList<Joueur> joueursSerialised = TableauScores.loadScores();
 		assertEquals(joueurs.get(0).getName(),joueursSerialised.get(0).getName());
 		assertEquals(joueurs.get(0).getScore(),joueursSerialised.get(0).getScore());
 		assertEquals(joueurs.get(1).getName(),joueursSerialised.get(1).getName());
