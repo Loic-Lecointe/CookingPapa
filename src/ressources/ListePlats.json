@@ -1,0 +1,10 @@
+{
+    "plat":[
+        {"nom": "pizza",
+        "ingredients":["PATE_A_PIZZA","SAUCE_TOMATE"],
+        "ingredtients optionnels":["JAMBON","CHAMPIGNON","CHORIZO","FROMAGE","ANANAS","MOZARELLA","SAUCISSE_DE_TOULOUSE"]},
+        {"nom":"hamburger",
+        "ingredients":["PAIN","STEAK"],
+        "ingredtients optionnels":["FROMAGE","SAUCISSE_DE_TOULOUSE"]}
+    ]
+}

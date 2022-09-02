@@ -4,6 +4,10 @@ public enum Ingredient {
 	
 	PATE_A_PIZZA("pate a pizza",'p'),
 	SAUCE_TOMATE("sauce tomate",'s'),
+	
+	PAIN("pain",'n'),
+	STEAK("steak",'k'),
+	
 	JAMBON("jambon",'j'),
 	CHAMPIGNON("champignon",'g'),
 	CHORIZO("chorizo",'z'),
@@ -11,6 +15,7 @@ public enum Ingredient {
 	ANANAS("ananas",'a'),
 	MOZARELLA("mozarella",'m'),
 	SAUCISSE_DE_TOULOUSE("saucisse de Toulouse",'t');
+	
 	
 	private final String name;
 	private final char shortcut;

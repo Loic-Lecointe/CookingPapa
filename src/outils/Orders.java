@@ -9,6 +9,10 @@ public class Orders {
 		return orders[index];
 	}
 	
+	public int getNbOrders() {
+		return nbOrders;
+	}
+	
 	public boolean add(Plat order) {
 		if (MAX_ORDERS == nbOrders) {
 			return false;
@@ -22,6 +26,7 @@ public class Orders {
 			orders[i] =  orders[i + 1];
 		}
 		orders[orders.length - 1] = null;
+		nbOrders--;
 	}
 	
 	public void removeDelayedOrders() {
@@ -41,7 +46,7 @@ public class Orders {
 		for (int i = 0; i < MAX_ORDERS; i++) {
 			res.append(i+1 + ": ");
 			if (orders[i] != null) {
-				res.append(orders[i].getName() + " (" + (i + 1) + ") " + orders[i].getTimeBeforeLeaving());
+				res.append(orders[i].getName() + " " + orders[i].getTimeBeforeLeaving());
 			} else {
 				res.append("_________");
 			}

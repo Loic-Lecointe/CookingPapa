@@ -9,7 +9,9 @@ public class Joueur implements Comparable<Joueur>{
 		this.score = score;
 	}
 
-
+	public Joueur() {
+		this(null,0);
+	}
 
 	public String getName() {
 		return name;

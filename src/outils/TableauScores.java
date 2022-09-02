@@ -15,7 +15,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class TableauScores {
 	 	
 	public static void saveScores(ArrayList<Joueur> scores) {
-		String path = System.getProperty("user.dir")+"donnees/";
+		String path = System.getProperty("user.dir")+"/donnees/";
 		ObjectMapper om = new ObjectMapper();
 		Collections.sort(scores);
 		try {
@@ -38,12 +38,12 @@ public class TableauScores {
 	
 	
 	public static ArrayList<Joueur> loadScores(){
-		String path = System.getProperty("user.dir")+"donnees/";
+		String path = System.getProperty("user.dir")+"/donnees/";
 		ObjectMapper om = new ObjectMapper();
 		ArrayList<Joueur> scores = new ArrayList<>();
 		
 		try {
-			scores.addAll(om.readValue(new File(path+"tabScores.json"), new TypeReference<List<Joueur>>() {}));
+			scores.addAll(om.readValue(new File(path+"/json/tabScores.json"), new TypeReference<List<Joueur>>() {}));
 		} catch (StreamReadException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -64,5 +64,8 @@ public class TableauScores {
 		
 		return scores;
 		
+	}
+	
+	public static void main(String[] args) {
 	}
 }
