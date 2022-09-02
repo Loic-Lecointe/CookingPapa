@@ -1,13 +1,16 @@
 package outils;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
 public class Plat {
+	private final static int TIME_BEFORE_LEAVING = 5;
 	private static int cpt = 0;
 	private int id;
 	private String name;
+	private final Date time_start = new Date();
 	private List<Ingredient> ingredients;
 	private int points;
 	
@@ -77,5 +80,14 @@ public class Plat {
 		}
 		
 		return res.toString();
+	}
+	
+	public long getTimeBeforeLeaving() {
+		Date now = new Date();
+		return TIME_BEFORE_LEAVING - (now.getTime() - time_start.getTime()) / 1000;
+	}
+	
+	public boolean isDelayed() {
+		return getTimeBeforeLeaving() <= 0;
 	}
 }

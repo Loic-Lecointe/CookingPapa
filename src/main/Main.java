@@ -39,6 +39,8 @@ public class Main {
 				if (date.getTime() - oldDate.getTime() > 1000) {
 					oldDate = date;
 					
+					orders.removeDelayedOrders();
+					
 					Plat plat = new Plat("Pizza",100,ingredients);
 					if (totalOrders <= NB_ORDERS_GAME && orders.add(plat)) {
 						totalOrders++;
