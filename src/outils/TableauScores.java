@@ -13,7 +13,7 @@ import com.fasterxml.jackson.databind.DatabindException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class TableauScores {
-	 	
+
 	public static void saveScores(ArrayList<Joueur> scores) {
 		String path = System.getProperty("user.dir")+"/donnees/";
 		ObjectMapper om = new ObjectMapper();
@@ -35,13 +35,13 @@ public class TableauScores {
 			System.exit(0);
 		}
 	}
-	
-	
+
+
 	public static ArrayList<Joueur> loadScores(){
 		String path = System.getProperty("user.dir")+"/donnees/";
 		ObjectMapper om = new ObjectMapper();
 		ArrayList<Joueur> scores = new ArrayList<>();
-		
+
 		try {
 			scores.addAll(om.readValue(new File(path+"/json/tabScores.json"), new TypeReference<List<Joueur>>() {}));
 		} catch (StreamReadException e) {
@@ -60,12 +60,27 @@ public class TableauScores {
 			System.exit(0);
 
 		}
-		
-		
+
+
 		return scores;
-		
+
 	}
-	
+
+	public static void printScores() {
+
+		ArrayList<Joueur> liste = loadScores();
+		int cpt = 0;
+		while(cpt < 10 && cpt <liste.size() && !liste.isEmpty()){
+			System.out.println("Joueur "+(cpt+1)+" : "+liste.get(cpt).getName()+"\t"+liste.get(cpt).getScore()+" points");
+			cpt++;
+		}
+	}
+
+
+
+
+
 	public static void main(String[] args) {
+		printScores();
 	}
 }
