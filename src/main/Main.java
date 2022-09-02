@@ -74,6 +74,7 @@ public class Main {
 		leaderboard.add(new Joueur(input,score.calcul_score_final(false)));
 		TableauScores.saveScores(leaderboard);
 		System.out.println("Score enregistré. Merci d'avoir joué !");
+		sc.close();
 	}
 	
 	private static void addNewPlat() {

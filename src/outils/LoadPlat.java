@@ -3,7 +3,6 @@ package outils;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import com.fasterxml.jackson.core.exc.StreamReadException;
@@ -21,17 +20,14 @@ public class LoadPlat {
 		try {
 			plats.addAll(om.readValue(new File(path+"/json/ListePlats.json"), new TypeReference<List<Plat>>() {}));
 		} catch (StreamReadException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			System.exit(0);
 
 		} catch (DatabindException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();			
 			System.exit(0);
 
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			System.exit(0);
 		}
