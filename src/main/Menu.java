@@ -29,12 +29,21 @@ public class Menu {
 				return;
 			} else if (choix == 2) {
 				printPath("/donnees/regles");
+				System.out.print("\n\nVeuillez appuyer sur entrée pour revenir au menu");
+				sc = new Scanner(System.in);
+				sc.nextLine();
+				Main.clearScreen();
+				menuPrincipal();
 			} else if (choix == 3) {
 				TableauScores.printScores();
+				sc = new Scanner(System.in);
+				sc.nextLine();
+
 			} else {
 				System.out.println("Au revoir");
 				System.exit(0);
 			}
+			
 		}
 		
 		public static void AfficherLogo() {
@@ -72,6 +81,7 @@ public class Menu {
 	
 	public static void main(String[] args) {
 		start();
+		sc.close();
 	}
 	
 	
