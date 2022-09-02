@@ -19,7 +19,6 @@ public class Main {
 			ingredients.add(e);
 		}
 		
-<<<<<<< HEAD
 		int totalOrders = 0;
 		
 		Plat plat = new Plat("Pizza",100,ingredients);
@@ -49,13 +48,6 @@ public class Main {
 			}
 			
 			takeOrder(Integer.valueOf(it.getInput()));
-=======
-		Plat plat = new Plat("Pizza",100);
-		System.out.println("Commande n1 : " + plat.toString());
-		System.out.println("Listes des inputs :");
-		for(int i = 0; i < plat.getIngredients().size();i++) {
-			System.out.println(plat.getIngredients().get(i));
->>>>>>> branch 'main' of https://gitlab.univ-lille.fr/2022-projet-agile-de-rentree/groupe-15
 		}
 		
 		System.out.println("Fin");
