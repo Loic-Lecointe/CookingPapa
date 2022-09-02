@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 import outils.*;
 
-public class Main {
+public class Main{
 	
 	static Orders orders = new Orders();
 	public static final int NB_ORDERS_GAME = 5;
