@@ -1,0 +1,10 @@
+{
+    [
+        {"name": "pizza",
+        "ingredientsObligatoire":["PATE_A_PIZZA","SAUCE_TOMATE"],
+        "ingredientsOptionnels":["JAMBON","CHAMPIGNON","CHORIZO","FROMAGE","ANANAS","MOZARELLA","SAUCISSE_DE_TOULOUSE"]},
+        {"name":"hamburger",
+        "ingredientsObligatoire":["PAIN","STEAK"],
+        "ingredientsOptionnels":["FROMAGE","SAUCISSE_DE_TOULOUSE"]}
+    ]
+}

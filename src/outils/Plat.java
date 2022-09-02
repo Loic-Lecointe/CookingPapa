@@ -17,8 +17,8 @@ public class Plat {
 	private int id;
 	private String name;
 	private final Date time_start = new Date();
-	private List<String> ingredientsObligatoire;
-	private List<String> ingredientsOptionnels;
+	private List<Ingredient> ingredientsObligatoire;
+	private List<Ingredient> ingredientsOptionnels;
 	@JsonIgnore
 	private List<Ingredient> ingredients;
 	@JsonIgnore
@@ -38,7 +38,7 @@ public class Plat {
 		this.ingredients = ingredient;
 	}
 	
-	public Plat(String name, List<String> ingredi, List<String>optionnel) {
+	public Plat(String name, List<Ingredient> ingredi, List<Ingredient> optionnel) {
 		this(name,0);
 		this.ingredientsObligatoire = ingredi;
 		this.ingredientsOptionnels = optionnel;
@@ -76,6 +76,22 @@ public class Plat {
 
 	public void setIngredients(List<Ingredient> ingredients) {
 		this.ingredients = ingredients;
+	}
+	
+	public List<Ingredient> getIngredientsObligatoires(){
+		return ingredientsObligatoire;
+	}
+	
+	public void setIngredientsObligatoires(List<Ingredient> ingredients) {
+		this.ingredientsObligatoire = ingredients;
+	}
+	
+	public List<Ingredient> getIngredientsOptionnels(){
+		return ingredientsOptionnels;
+	}
+	
+	public void setIngredientsOptionnels(List<Ingredient> ingredients) {
+		this.ingredientsOptionnels = ingredients;
 	}
 	@JsonIgnore
 	public int getPoints() {
