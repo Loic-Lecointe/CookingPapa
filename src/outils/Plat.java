@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(value = {"cpt","id","ingredients","points"})
 public class Plat {
-	private final static int TIME_BEFORE_LEAVING = 15;
+	private final static int TIME_BEFORE_LEAVING = 30;
 	@JsonIgnore
 	private static int cpt = 0;
 	@JsonIgnore
