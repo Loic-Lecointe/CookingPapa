@@ -3,7 +3,6 @@ package main;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Scanner;
 
 import outils.*;
 
@@ -13,7 +12,7 @@ public class Main {
 	static int totalOrders = 0;
 	public static final int NB_ORDERS_GAME = 5;
 	public static int completedOrders = 0;
-	static Scanner sc = new Scanner(System.in);
+	
 	private static int plats_reussi;
 	private static int plats_echoue;
 	
@@ -31,28 +30,27 @@ public class Main {
 			it.start();
 			
 			Date oldDate = new Date(), date;
-						
+			
 			while (it.getInput() == null && !isFinished()) {
 				date = new Date();
 
 				if (date.getTime() - oldDate.getTime() > 1000) {
 					oldDate = date;
 					
-					orders.removeDelayedOrders();
-					
 					Plat plat = new Plat("Pizza",100,ingredients);
 					if (totalOrders < NB_ORDERS_GAME && orders.add(plat)) {
 						totalOrders++;
 					}
 					
-					clearScreen();
-					System.out.println("Commandes:");
-					System.out.println(orders);
+					printHUD();
 				}
 			}
 			
 			if (it.getInput() != null) {
-				takeOrder(Integer.valueOf(it.getInput()) - 1);
+				try {
+					takeOrder(Integer.valueOf(it.getInput()) - 1);
+				} catch (NumberFormatException e) {}
+				printHUD();
 			}
 		}
 		
@@ -60,6 +58,13 @@ public class Main {
 		System.out.println("Fin");
 		Calcul_score score = new Calcul_score(debutDuJeu, finDuJeu, plats_reussi, plats_echoue,5);
 		System.out.println("Votre score est de :" + score.calcul_score_final(false));
+	}
+	
+	public static void printHUD() {
+		orders.removeDelayedOrders();
+		clearScreen();
+		System.out.println("Commandes:");
+		System.out.println(orders);
 	}
 	
 	public static void takeOrder(int index) {
