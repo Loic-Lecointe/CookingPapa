@@ -2,10 +2,10 @@ package outils;
 
 public class Orders {
 	private final static int MAX_ORDERS = 5;
-	private Plat[] orders = new Plat[MAX_ORDERS];
+	private Order[] orders = new Order[MAX_ORDERS];
 	private int nbOrders = 0;
 	
-	public Plat get(int index) {
+	public Order get(int index) {
 		return orders[index];
 	}
 	
@@ -13,7 +13,7 @@ public class Orders {
 		return nbOrders;
 	}
 	
-	public boolean add(Plat order) {
+	public boolean add(Order order) {
 		if (MAX_ORDERS == nbOrders) {
 			return false;
 		}

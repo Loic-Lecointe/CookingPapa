@@ -1,9 +1,9 @@
 
     [
-        {"name": "pizza",
-        "ingredientsObligatoires":["PATE_A_PIZZA","SAUCE_TOMATE"],
-        "ingredientsOptionnels":["JAMBON","CHAMPIGNON","CHORIZO","FROMAGE","ANANAS","MOZARELLA","SAUCISSE_DE_TOULOUSE"]},
-        {"name":"hamburger",
-        "ingredientsObligatoires":["PAIN","STEAK"],
-        "ingredientsOptionnels":["FROMAGE","SAUCISSE_DE_TOULOUSE"]}
+        {"name": "Pizza",
+        "mandatoryIngredients":["PATE_A_PIZZA","SAUCE_TOMATE"],
+        "optionalIngredients":["JAMBON","CHAMPIGNON","CHORIZO","FROMAGE","ANANAS","MOZARELLA","SAUCISSE_DE_TOULOUSE"]},
+        {"name":"Hamburger",
+        "mandatoryIngredients":["PAIN","STEAK"],
+        "optionalIngredients":["FROMAGE","SAUCISSE_DE_TOULOUSE"]}
     ]

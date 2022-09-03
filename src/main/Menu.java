@@ -18,7 +18,7 @@ public class Menu {
 		
 		printPath("/src/main/logo.txt");
 		
-		printPath("/donnees/menu");
+		// printPath("/donnees/menu");
 		
 		Verification();
 		if(choix == 1) {

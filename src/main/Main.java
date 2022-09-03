@@ -10,7 +10,7 @@ import java.util.Scanner;
 import outils.*;
 
 public class Main {
-	static List<Plat> listePlat = LoadPlat.loadListePlat();
+	static List<Receipe> receipeList = LoadReceipes.loadListePlat();
 	static Orders orders = new Orders();
 	static int totalOrders = 0;
 	public static final int NB_ORDERS_GAME = 5;
@@ -80,7 +80,7 @@ public class Main {
 	private static void addNewPlat() {
 		
 		Random rdm = new Random();
-		Plat plat = new Plat(listePlat.get(rdm.nextInt(2)));
+		Order plat = new Order(receipeList.get(rdm.nextInt(receipeList.size())));
 		
 		if (totalOrders < NB_ORDERS_GAME && orders.add(plat)) {
 			totalOrders++;
@@ -95,7 +95,7 @@ public class Main {
 	}
 	
 	public static void takeOrder(int index) {
-		Plat order = orders.get(index);
+		Order order = orders.get(index);
 		
 		clearScreen();
 		
