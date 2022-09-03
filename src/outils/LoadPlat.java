@@ -32,19 +32,5 @@ public class LoadPlat {
 			System.exit(0);
 		}
 		return plats;
-		}
-		
-		public static void printPlat() {
-
-			ArrayList<Plat> liste = loadListePlat();
-			int cpt = 0;
-			while(cpt < 10 && cpt <liste.size() && !liste.isEmpty()){
-				System.out.println(liste.get(cpt).getName()+"\n Ingredients obligatoires"+liste.get(cpt).getIngredientsObligatoires()+"\n Ingredients optionnels"+liste.get(cpt).getIngredientsOptionnels());
-				cpt++;
-			}
-		}
-
-	public static void main(String[] args) {
-		printPlat();
 	}
 }
