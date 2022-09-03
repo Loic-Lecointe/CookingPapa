@@ -1,7 +1,7 @@
 package outils;
 
 public class Orders {
-	private final static int MAX_ORDERS = 5;
+	private final static int MAX_ORDERS = 7;
 	private Order[] orders = new Order[MAX_ORDERS];
 	private int nbOrders = 0;
 	

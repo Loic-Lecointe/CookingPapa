@@ -26,7 +26,6 @@ public class Order {
 		for(int i = 0; i<nb; i++) {
 			this.ingredients.add(receipe.getOptionalIngredients().get(rdm.nextInt(receipe.getOptionalIngredients().size())));
 		}
-		System.out.println(this.ingredients);
 	}
 	
 	public String getName() {
@@ -54,8 +53,16 @@ public class Order {
 	public String getIngredientsShortcut() {
 		StringBuilder res = new StringBuilder();
 		
-		for(int i = 0; i < getIngredients().size();i++) {
-			res.append(getIngredients().get(i) + "\n");
+		res.append("\n┉┉┉ Ingrédients obligatoires ┉┉┉\n");
+		
+		for(Ingredient ingredient : receipe.getMandatoryIngredients()) {
+			res.append(ingredient + "\n");
+		}
+		
+		res.append("\n┉┉┉ Ingrédients supplémentaires ┉┉┉\n");
+		
+		for(Ingredient ingredient : receipe.getOptionalIngredients()) {
+			res.append(ingredient + "\n");
 		}
 		
 		return res.toString();

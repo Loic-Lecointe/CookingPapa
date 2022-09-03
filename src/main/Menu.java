@@ -1,12 +1,9 @@
 package main;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import outils.PrintTools;
 import outils.TableauScores;
 
 public class Menu {
@@ -14,9 +11,9 @@ public class Menu {
 	static int choix = 0; 
 	  
 	public static void start() {
-		Main.clearScreen();
+		PrintTools.clearScreen();
 		
-		printPath("/src/main/logo.txt");
+		PrintTools.printPath("/src/main/logo.txt");
 		
 		// printPath("/donnees/menu");
 		
@@ -24,14 +21,14 @@ public class Menu {
 		if(choix == 1) {
 			return;
 		} else if (choix == 2) {
-			Main.clearScreen();
-			printPath("/donnees/regles");
+			PrintTools.clearScreen();
+			PrintTools.printPath("/donnees/regles");
 			System.out.print("\n\nVeuillez appuyer sur entree pour revenir au menu");
 			sc = new Scanner(System.in);
 			sc.nextLine();
 			start();
 		} else if (choix == 3) {
-			Main.clearScreen();
+			PrintTools.clearScreen();
 			TableauScores.printScores();
 			System.out.print("\n\nVeuillez appuyer sur entree pour revenir au menu");
 			sc = new Scanner(System.in);
@@ -43,24 +40,6 @@ public class Menu {
 			sc.close();
 			System.exit(0);
 		}
-	}
-	
-	
-	/**
-	 * Method to print a file
-	 * @param file
-	 */
-	public static void printPath(String file) {
-		Path path = Paths.get(System.getProperty("user.dir")+file);
-		try {
-			for(String ligne : Files.readAllLines(path)) {
-				System.out.println(ligne);
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-			System.exit(0);
-		}
-		
 	}
 	
 	public static int Verification(){

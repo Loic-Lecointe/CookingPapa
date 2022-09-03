@@ -89,21 +89,39 @@ public class Main {
 
 	public static void printHUD() {
 		orders.removeDelayedOrders();
-		clearScreen();
+		PrintTools.clearScreen();
 		System.out.println("Commandes:");
 		System.out.println(orders);
+		printFoodTruck();
+	}
+	
+	public static void printFoodTruck() {
+		List<String> truck = PrintTools.pathToString("/donnees/foodtruck");
+		
+		for (int i = 0; i < orders.getNbOrders(); i++) {
+			List<String> client = PrintTools.pathToString("/donnees/customer");
+			for (int j = 0; j < client.size(); j++) {
+				truck.add(j, truck.get(j) + client.get(j));
+				truck.remove(j+1);
+			}
+		}
+		
+		for (String ligne: truck) {
+			System.out.println(ligne);
+		}
 	}
 	
 	public static void takeOrder(int index) {
 		Order order = orders.get(index);
 		
-		clearScreen();
+		PrintTools.clearScreen();
 		
 		System.out.println("Plat: " + order.getName());
 		System.out.println("Ingrédients: " + order.getIngredients() + "\n");
 		
 		System.out.println("Liste des inputs:");
 		System.out.println(order.getIngredientsShortcut());
+		
 		completedOrders++;
 		String finish = "";
 		if(CookInput.isCorrect(order)) {
@@ -115,12 +133,6 @@ public class Main {
 		}
 		orders.remove(index);
 		System.out.println(finish);
-	}
-	
-	public static void clearScreen() {
-		for (int i = 0; i < 40; i++) {
-			System.out.println();
-		}
 	}
 	
 	public static boolean isFinished() {
