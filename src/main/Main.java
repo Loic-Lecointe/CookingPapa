@@ -129,7 +129,7 @@ public class Main {
 			finish = "Bravo vous avez reussi";
 		}else {
 			plats_echoue++;
-			finish = "Tu es null";
+			finish = "Tu es nul";
 		}
 		orders.remove(index);
 		System.out.println(finish);

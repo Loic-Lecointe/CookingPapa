@@ -14,25 +14,27 @@ public class Orders {
 	}
 	
 	public boolean add(Order order) {
-		if (MAX_ORDERS == nbOrders) {
-			return false;
+		int i = 0; 
+		while (i < orders.length && orders[i] != null) i++;
+		
+		if (i < orders.length) {
+			orders[i] = order;
+			nbOrders++;
+			return true;
 		}
-		orders[nbOrders++] = order;
-		return true;
+		return false;
 	}
 	
 	public void remove(int index) {
-		for (int i = index; i < MAX_ORDERS - 1; i++) {
-			orders[i] =  orders[i + 1];
+		if (orders[index] != null) {
+			orders[index] = null;
+			nbOrders--;
 		}
-		orders[orders.length - 1] = null;
-		nbOrders--;
 	}
 	
 	public void removeDelayedOrders() {
-		int i = 0;
-		while (i < nbOrders) {
-			if (orders[i].isDelayed()) {
+		for (int i = 0; i < orders.length; i++) {
+			if (orders[i] != null && orders[i].isDelayed()) {
 				remove(i);
 			} else {
 				i++;
