@@ -6,19 +6,19 @@
         "isHot":"false"
     },
     {
-        "name":"crevette a la sauce aigre-douce",
+        "name":"crevette a la sauce",
         "mandatoryIngredients":["CREVETTE","OIGNON","CAROTTE","POIVRON","ANANAS"],
         "optionalIngredients":[],
         "isHot":"true"
     },
     {
-        "name":"salade laab de saumon ou de champignons",
+        "name":"salade laab",
         "mandatoryIngredients":["SAUMON","CHAMPIGNON","SALADE","PIMENT","RIZ"],
         "optionalIngredients":[],
         "isHot":"true"
     },
     {
-        "name":"Salade de papaye verte",
+        "name":"Salade de papaye",
         "mandatoryIngredients":["PAPAYE","TOMATE","PIMENT","AUBERGINE","CAROTTE","AIL","CITRON"],
         "optionalIngredients":[],
         "isHot":"false"

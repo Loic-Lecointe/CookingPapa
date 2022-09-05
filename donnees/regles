@@ -27,12 +27,21 @@ Plus vous le faites rapidement, plus vous aurez de points, si vous faites une er
 
 Dans notre jeu, vous aurez le choix entre differente regions avec chacune les plats typiques de celle-ci.
 
+<<<<<<< HEAD
+	Asie:			|		Europe:				|		Amerique:
+					|							|
+Crevette a la sauce	|Kebab						|Hamburger
+Salade laab			|Pizza						|Burrito
+Salade de papaye	|Poireaux a la vinaigrette	|Poutine
+Maki				|Boeuf braise a la biere	|Bagel au saumon et a l'avocat
+=======
 	Asie:		|		Europe:			|		Amerique:
 			|					|
 			|					|
 			|					|
 			|					|				
 			|					|
+>>>>>>> branch 'main' of https://gitlab.univ-lille.fr/2022-projet-agile-de-rentree/groupe-15
 				
 Il y a aussi un mode infini qui fonction avec un systeme de vie, tant que vous reussissez les commandes alors le jeu continue.
 
