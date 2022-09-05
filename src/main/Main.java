@@ -100,6 +100,7 @@ public class Main {
 		}
 				
 		if (!order.isHot() || ((HotOrder) order).isCooked()) {
+			furnaces.remove(order);
 			orders.remove(index);
 		}
 		} catch(NullPointerException npe) {
@@ -141,6 +142,10 @@ public class Main {
 			System.out.println("Score enregistre. Merci d'avoir joue !");
 			sc.close();
 		}
+		System.out.println("Appuyez sur entrée pour revenir au menu principal");
+		Scanner sc = new Scanner(System.in);
+		sc.nextLine();
+		Menu.start();
 		
 	}
 	

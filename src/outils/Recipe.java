@@ -2,6 +2,7 @@ package outils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Recipe {
 	private final String name;
@@ -45,5 +46,23 @@ public class Recipe {
 			return new HotOrder(this);
 		}
 		return new Order(this);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(mandatoryIngredients, name, optionalIngredients);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Recipe other = (Recipe) obj;
+		return Objects.equals(mandatoryIngredients, other.mandatoryIngredients) && Objects.equals(name, other.name)
+				&& Objects.equals(optionalIngredients, other.optionalIngredients);
 	}
 }

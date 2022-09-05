@@ -3,6 +3,7 @@ package outils;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 
 public class Order {
@@ -82,4 +83,23 @@ public class Order {
 	public boolean isHot() {
 		return false;
 	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(ingredients, receipe);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Order other = (Order) obj;
+		return Objects.equals(ingredients, other.ingredients) && Objects.equals(receipe, other.receipe);
+	}
+	
+	
 }

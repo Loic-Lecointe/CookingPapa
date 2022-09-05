@@ -21,18 +21,13 @@ public class Furnaces {
 	
 	public void remove(Order order) {
 		int i = 0;
-		while (i < food.length && food[i] != order) i++;
-		
+		while (i < food.length && !food[i].equals(order)) i++;
 		if (i < food.length) {
 			food[i] = null;
 		}
 	}
 	
-	public void remove(int index) {
-		if (food[index] != null) {
-			food[index] = null;
-		}
-	}
+	
 	
 	@Override
 	public String toString() {
