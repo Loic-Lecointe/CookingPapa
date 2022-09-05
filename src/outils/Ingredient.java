@@ -29,6 +29,8 @@ public enum Ingredient {
 	THON("thon",'h'),
 	SAUMON("saumon",'s'),
 	CORNICHON("cornichon",'c'),
+	POMME_DE_LA_TERRE("pomme de la terre",'p'),
+	GOUDA("gouda",'g'),
 	OIGNON("oignon",'o');
 	
 	private final String name;

@@ -1,6 +1,20 @@
-{
-    "name":"maki",
-    "mandatoryIngredients":["ALGUE","RIZ"],
-    "optionalIngredients":["TOMATE","AVOCAT","POIVRON","CHAMPIGNON","CREVETTE","THON","SAUMON"],
-    "isHot":"false"
-}
+[
+    {
+        "name":"maki",
+        "mandatoryIngredients":["ALGUE","RIZ"],
+        "optionalIngredients":["TOMATE","AVOCAT","POIVRON","CHAMPIGNON","CREVETTE","THON","SAUMON"],
+        "isHot":"false"
+    },
+    {
+        "name":"crevette a la sauce aigre-douce",
+        "mandatoryIngredients":["CREVETTE","OIGNON","CAROTTE","POIVRON","ANANAS"],
+        "optionalIngredients":[],
+        "isHot":"true"
+    },
+    {
+        "name":"saladelaab de saumon ou de champignons",
+        "mandatoryIngredients":["SAUMON","CHAMPIGNON","SALADE","PIMENT","RIZ"],
+        "optionalIngredients":[],
+        "isHot":"true"
+    }
+]

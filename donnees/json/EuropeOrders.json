@@ -10,5 +10,11 @@
         "mandatoryIngredients":["PATE_A_PIZZA","SAUCE_TOMATE"],
         "optionalIngredients":["JAMBON","CHAMPIGNON","CHORIZO","FROMAGE","ANANAS","MOZARELLA","SAUCISSE_DE_TOULOUSE"],
         "isHot":"true"
+    },
+    {
+        "name":"boeuf braise aux carottes",
+        "mandatoryIngredients":["BOEUF","CAROTTE","OIGNONS"],
+        "optionalIngredients":[],
+        "isHot":"true"
     }
 ]
