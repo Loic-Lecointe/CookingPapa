@@ -42,10 +42,6 @@ public class Order {
 		this.ingredients = ingredients;
 	}
 	
-	public int getPoints() {
-		// TODO: Créer un système de points automatique
-		return -1;
-	}
 
 	@Override
 	public String toString() {

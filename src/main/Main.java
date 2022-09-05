@@ -12,7 +12,7 @@ import outils.*;
 public class Main {
 	static List<Recipe> receipeList = new ArrayList<>();
 	static List<Recipe> hotReceipeList = new ArrayList<>();
-	
+	private static Scanner sc = new Scanner(System.in);
 	static Orders orders = new Orders();
 	static Furnaces furnaces = new Furnaces();
 	static int totalOrders = 0;
@@ -25,6 +25,7 @@ public class Main {
 	
 	public static void main(String[] args) {
 		Menu.start();
+		sc.close();
 	}
 	
 	private static void addNewOrder() {
@@ -127,17 +128,13 @@ public class Main {
 		System.out.println("Votre score est de : " + score.calcul_score_final(false));
 		if(infini) {
 			System.out.println("Entrez un nom ou un pseudo pour etre enregistre sur le leaderboard :");
-			Scanner sc = new Scanner(System.in);
 			String input = sc.nextLine();
 			ArrayList<Player> leaderboard = TableauScores.loadScores();
 			leaderboard.add(new Player(input,score.calcul_score_final(false)));
 			TableauScores.saveScores(leaderboard);
 			System.out.println("Score enregistre. Merci d'avoir joue !");
-			sc.close();
 		}
-		System.out.println("Appuyez sur entr�e pour revenir au menu principal");
-		Scanner sc = new Scanner(System.in);
-		sc.nextLine();
+		
 		totalOrders = 0;
 		Menu.start();
 		
