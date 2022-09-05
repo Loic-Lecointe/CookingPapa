@@ -53,22 +53,16 @@ public class Menu {
 		return choix;
 	}
 	
-	public static int SelectNiveau() {
+	public static void SelectNiveau() {
 		PrintTools.clearScreen();
 		PrintTools.printPath("/src/main/Selection.txt");
 		Verification(5);
-		if(choix == 1) {
-			Main.jeu(false,1);
-		} else if (choix == 2) {
-			//niveau 2
-		} else if (choix == 3) {
-			//niveau 3
-		} else if(choix == 4){
-			Main.jeu(true,0);
-		}	else if (choix == 5){
+		if(choix == 4) {
+			Main.jeu(true, 0);
+		} else if (choix == 5) {
 			start();
 		}
-		return choix;
+		Main.jeu(false, choix);
 	}
 
 }

@@ -10,10 +10,9 @@ import java.util.Scanner;
 import outils.*;
 
 public class Main {
-	static List<Receipe> receipeList = LoadReceipes.loadColdReceipes();
-	static List<Receipe> hotReceipeList = LoadReceipes.loadHotReceipes();
-	static List<Receipe> coldReceipeList = new ArrayList<>();
+	static List<Receipe> receipeList = new ArrayList<>();
 	static List<Receipe> hotReceipeList = new ArrayList<>();
+	
 	static Orders orders = new Orders();
 	static Furnaces furnaces = new Furnaces();
 	static int totalOrders = 0;
@@ -161,8 +160,8 @@ public class Main {
 	
 	
 	public static void jeu(boolean infini, int niveau) {
-		List<Receipe> coldReceipeList = LoadReceipes.loadColdReceipes(niveau);
-		List<Receipe> hotReceipeList = LoadReceipes.loadHotReceipes(niveau);
+		List<Receipe> receipeList = LoadReceipes.loadColdReceipes(niveau);
+		receipeList.addAll(LoadReceipes.loadHotReceipes(niveau));
 		LocalDateTime debutDuJeu = LocalDateTime.now();
 		
 		if(!infini) {
