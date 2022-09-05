@@ -4,13 +4,14 @@ public enum Ingredient {
 	
 	PATE_A_PIZZA("pate a pizza",'p'),
 	SAUCE_TOMATE("sauce tomate",'s'),
-	PAIN("pain",'n'),
-	STEAK("steak",'k'),
-	TORTILLA("tortilla",'l'),
+	PAIN("pain",'p'),
+	STEAK("steak",'s'),
+	TORTILLA("tortilla",'t'),
 	BOEUF("boeuf",'b'),
-	VIANDE_A_KEBAB("viande a kebab",'h'),
-	ALGUE("algue",'u'),
+	VIANDE_A_KEBAB("viande a kebab",'v'),
+	ALGUE("algue",'a'),
 	RIZ("riz",'r'),
+	
 	JAMBON("jambon",'j'),
 	CHAMPIGNON("champignon",'g'),
 	CHORIZO("chorizo",'z'),
@@ -19,24 +20,16 @@ public enum Ingredient {
 	MOZARELLA("mozarella",'m'),
 	SAUCISSE_DE_TOULOUSE("saucisse de Toulouse",'d'),
 	SALADE("salade",'w'),
-	TOMATE("tomate",'t'),
+	TOMATE("tomate",'w'),
 	EPICE("epice",'e'),
-	PIMENT("piment",'i'),
-<<<<<<< HEAD
+	PIMENT("piment",'p'),
 	AVOCAT("avocat",'v'),
-	POIVRON("poivron",'x'),
-	CREVETTE("crevette",'y'),
-	THON("thon",'q'),
-	SAUMON("saumon",'f'),
+	POIVRON("poivron",'p'),
+	CREVETTE("crevette",'c'),
+	THON("thon",'h'),
+	SAUMON("saumon",'s'),
 	CORNICHON("cornichon",'c'),
 	OIGNON("oignon",'o');
-	
-=======
-	OIGNON("oignon",'o'),
-	RIZ("riz",'r'),
-	CORNICHON("cornichon",'c'),
-	FRITE("frite",'f');
->>>>>>> branch 'main' of https://gitlab.univ-lille.fr/2022-projet-agile-de-rentree/groupe-15
 	
 	private final String name;
 	private final char shortcut;

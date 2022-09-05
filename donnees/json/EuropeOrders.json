@@ -1,0 +1,12 @@
+[
+    {
+        "name":"Kebab",
+        "mandatoryIngredients":["PAIN","VIANDE_A_KEBAB"],
+        "optionalIngredients":["SALADE","TOMATE","OIGNON"]
+    },
+    {
+        "name":"Pizza",
+        "mandatoryIngredients":["PATE_A_PIZZA","SAUCE_TOMATE"],
+        "optionalIngredients":["JAMBON","CHAMPIGNON","CHORIZO","FROMAGE","ANANAS","MOZARELLA","SAUCISSE_DE_TOULOUSE"]
+    }
+]
