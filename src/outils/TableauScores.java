@@ -79,7 +79,7 @@ public class TableauScores {
 				cpt++;
 			}
 		}else {
-			System.out.println("Aucun score n'a encore été enregistré. Terminez une partie pour commencer à remplir le leaderboard !");
+			System.out.println("Aucun score n'a encore ete enregistre. Terminez une partie pour commencer a remplir le leaderboard !");
 		}
 
 	}
