@@ -21,9 +21,12 @@ public class Main {
 	private static int nbLife = 3;
 	private static int plats_reussi;
 	private static int plats_echoue;
+	private static boolean isInfinite = false;
 	
 	public static void main(String[] args) {
 		Menu.start();
+		
+		
 	}
 	
 	private static void addNewOrder() {
@@ -31,7 +34,7 @@ public class Main {
 		Random rdm = new Random();
 		Order order = receipeList.get(rdm.nextInt(receipeList.size())).createOrder();
 		
-		if (totalOrders < NB_ORDERS_GAME && orders.add(order)) {
+		if ((totalOrders < NB_ORDERS_GAME || isInfinite)&& orders.add(order)) {
 			totalOrders++;
 		}
 	}
@@ -44,6 +47,9 @@ public class Main {
 		System.out.println("Commandes:");
 		System.out.println(orders);
 		printFoodTruck();
+		if(isInfinite) {
+			System.out.println("NbLife :" + nbLife);
+		}
 	}
 	
 	public static void printFoodTruck() {
@@ -63,10 +69,12 @@ public class Main {
 	}
 	
 	public static void takeOrder(int index) {
-		Order order = orders.get(index);
 		
-		PrintTools.clearScreen();
+		try {
+			Order order = orders.get(index);
 			
+			PrintTools.clearScreen();
+		
 		if (!order.isHot() || !((HotOrder) order).isCooking() && !((HotOrder) order).isCooked()) {
 			System.out.println("◀◀ Plat: " + order.getName() + " ▶▶");
 			
@@ -95,10 +103,15 @@ public class Main {
 		if (!order.isHot() || ((HotOrder) order).isCooked()) {
 			orders.remove(index);
 		}
+		} catch(NullPointerException npe) {
+			System.out.println("Cette commande n'est pas disponible");
+		} catch(ArrayIndexOutOfBoundsException aiooe) {
+			System.out.println("Le chiffre donn� est trop grand");
+		}
 	}
 	
 	public static boolean isFinished() {
-		return (totalOrders == NB_ORDERS_GAME && orders.getNbOrders() == 0) || nbLife==0;
+		return !isInfinite?(totalOrders == NB_ORDERS_GAME && orders.getNbOrders() == 0):nbLife==0;
 	}
 	
 	
@@ -109,11 +122,10 @@ public class Main {
 		LocalDateTime debutDuJeu = LocalDateTime.now();
 		
 		if(!infini) {
-			playGame(niveau);
+			playGame();
 		} else {
-			while(nbLife>0) {
-				playGame(0);
-			}
+			isInfinite = true;
+			playGame();
 		}
 		
 		LocalDateTime finDuJeu = LocalDateTime.now();
@@ -133,7 +145,7 @@ public class Main {
 		
 	}
 	
-	public static void playGame(int niveau) {		
+	public static void playGame() {
 		while (!isFinished()) {
 			
 			ActionInput it = new ActionInput();
@@ -169,7 +181,7 @@ public class Main {
 			if (it.getInput() != null) {
 				try {
 					takeOrder(Integer.valueOf(it.getInput()) - 1);
-				} catch (NumberFormatException | NullPointerException e) {}
+				} catch (NumberFormatException e) {}
 				printHUD();
 			}
 		}
