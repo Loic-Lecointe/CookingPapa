@@ -51,14 +51,19 @@ public class MealOrder {
 	public String getIngredientsShortcut() {
 		StringBuilder res = new StringBuilder();
 		
-		res.append("\n┉┉┉ Ingrédients obligatoires ┉┉┉\n");
+		res.append("\n┉┉┉ Ingredients obligatoires ┉┉┉\n");
 		
 		for(Ingredient ingredient : recipe.getMandatoryIngredients()) {
 			res.append(ingredient + "\n");
 		}
 		
+<<<<<<< HEAD
+		if (receipe.getOptionalIngredients().size() != 0) {
+			res.append("\n┉┉┉ Ingredients supplementaires ┉┉┉\n");
+=======
 		if (recipe.getOptionalIngredients().size() != 0) {
 			res.append("\n┉┉┉ Ingrédients supplémentaires ┉┉┉\n");
+>>>>>>> branch 'main' of https://gitlab.univ-lille.fr/2022-projet-agile-de-rentree/groupe-15.git
 		}
 		
 		for(Ingredient ingredient : recipe.getOptionalIngredients()) {
@@ -107,8 +112,8 @@ public class MealOrder {
 		res.append("┏");
 		res.append(repeatCar(size, '━'));
 		res.append("┓\n");
-		res.append("┃Ingrédients:");
-		res.append(repeatCar(size - "┃Ingrédients:".length() + 1, ' ') + "┃\n");
+		res.append("┃Ingredients:");
+		res.append(repeatCar(size - "┃Ingredients:".length() + 1, ' ') + "┃\n");
 		
 		res.append("┣" + repeatCar(size, '━') + "┫\n");
 		
