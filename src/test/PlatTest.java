@@ -9,7 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class PlatTest {
-	Order plat;
+	MealOrder plat;
 
 	@BeforeEach
 	void Initialization() {
@@ -18,7 +18,7 @@ public class PlatTest {
 		
 		Recipe platReceipe = new Recipe("p", ingredients, false);
 		
-		plat = new Order(platReceipe);
+		plat = new MealOrder(platReceipe);
 	}
 	
 	@Test

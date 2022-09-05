@@ -2,10 +2,10 @@ package outils;
 
 public class Orders {
 	public final static int MAX_ORDERS = 7;
-	private Order[] orders = new Order[MAX_ORDERS];
+	private MealOrder[] orders = new MealOrder[MAX_ORDERS];
 	private int nbOrders = 0;
 	
-	public Order get(int index) {
+	public MealOrder get(int index) {
 		return orders[index];
 	}
 	
@@ -13,7 +13,7 @@ public class Orders {
 		return nbOrders;
 	}
 	
-	public boolean add(Order order) {
+	public boolean add(MealOrder order) {
 		int i = 0; 
 		while (i < orders.length && orders[i] != null) i++;
 		

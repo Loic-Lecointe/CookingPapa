@@ -41,11 +41,11 @@ public class Recipe {
 		return isHot;
 	}
 	
-	public Order createOrder() {
+	public MealOrder createOrder() {
 		if (isHot) {
-			return new HotOrder(this);
+			return new HotMealOrder(this);
 		}
-		return new Order(this);
+		return new MealOrder(this);
 	}
 
 	@Override
