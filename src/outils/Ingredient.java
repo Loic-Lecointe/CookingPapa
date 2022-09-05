@@ -26,7 +26,7 @@ public enum Ingredient {
 	PIMENT("piment",'p'),
 	AVOCAT("avocat",'v'),
 	POIVRON("poivron",'p'),
-	CREVETTE("crevette",'c'),
+	CREVETTE("crevette",'t'),
 	THON("thon",'h'),
 	SAUMON("saumon",'s'),
 	CORNICHON("cornichon",'c'),
