@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 
 import outils.Calcul_score;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
@@ -20,16 +19,12 @@ public class CalculScoreTest {
 	
 	@Test
 	void testCalculTempsJoue() {
-<<<<<<< HEAD
 		assertEquals(2,(int) c.calcul_temps_joue());
-=======
-		assertEquals(c.time_start.until(this.time_end, ChronoUnit.SECONDS),c.calcul_temps_joue());
->>>>>>> branch 'main' of https://gitlab.univ-lille.fr/2022-projet-agile-de-rentree/groupe-15
 	}
 
 	@Test
 	void testCalculScoreFinal() {
-		assertEquals(true,true);
+		assertEquals(0,c.calcul_score_final(false));
 	}
 	
 	
