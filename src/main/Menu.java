@@ -15,9 +15,7 @@ public class Menu {
 		
 		PrintTools.printPath("/src/main/logo.txt");
 		
-		// printPath("/donnees/menu");
-		
-		Verification();
+		Verification(4);
 		if(choix == 1) {
 			return;
 		} else if (choix == 2) {
@@ -42,14 +40,32 @@ public class Menu {
 		}
 	}
 	
-	public static int Verification(){
+	public static int Verification(int nbChoix){
 		try {
 			sc = new Scanner(System.in);
-			while((choix = sc.nextInt())>4 || choix<0) {}	
+			while((choix = sc.nextInt())>nbChoix || choix<0) {}	
 			
 		} catch (InputMismatchException e) {
 			System.out.println("Tu ne peux pas mettre de lettres!");
-			Verification();
+			Verification(nbChoix);
+		}
+		return choix;
+	}
+	
+	public static int SelectNiveau() {
+		PrintTools.clearScreen();
+		PrintTools.printPath("/src/main/Selection.txt");
+		Verification(5);
+		if(choix == 1) {
+			//niveau 1
+		} else if (choix == 2) {
+			//niveau 2
+		} else if (choix == 3) {
+			//niveau 3
+		} else if(choix == 4){
+			Main.jeu(true);
+		}	else if (choix == 5){
+			start();
 		}
 		return choix;
 	}
