@@ -51,7 +51,7 @@ public class Orders {
 		for (int i = 0; i < MAX_ORDERS; i++) {
 			res.append(i+1 + ": ");
 			if (orders[i] != null) {
-				res.append(orders[i].getName() + " " + orders[i].getTimeBeforeLeaving());
+				res.append(orders[i].getName() + " " + orders[i].getTimeBeforeLeaving() + "s");
 			} else {
 				res.append("_________");
 			}

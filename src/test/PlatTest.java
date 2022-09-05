@@ -16,7 +16,7 @@ public class PlatTest {
 		ArrayList<Ingredient> ingredients = new ArrayList<>();
 		ingredients.toArray(Ingredient.values());
 		
-		Receipe platReceipe = new Receipe("p", ingredients);
+		Receipe platReceipe = new Receipe("p", ingredients, false);
 		
 		plat = new Order(platReceipe);
 	}
