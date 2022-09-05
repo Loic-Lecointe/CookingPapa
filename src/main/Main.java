@@ -10,8 +10,10 @@ import java.util.Scanner;
 import outils.*;
 
 public class Main {
-	static List<Receipe> receipeList = LoadReceipes.loadListePlat();
+	static List<Receipe> coldReceipeList = LoadReceipes.loadColdReceipes();
+	static List<Receipe> hotReceipeList = LoadReceipes.loadHotReceipes();
 	static Orders orders = new Orders();
+	static Furnaces furnaces = new Furnaces();
 	static int totalOrders = 0;
 	public static final int NB_ORDERS_GAME = 5;
 	public static int completedOrders = 0;
@@ -33,9 +35,12 @@ public class Main {
 			Date refreshDate = new Date();
 			Date orderDate = new Date();
 			
+			System.out.println(hotReceipeList.get(0).createOrder());
+			furnaces.add((HotOrder) hotReceipeList.get(0).createOrder());
+			
 			// Ajoute quelques plats à servir au début de la partie
 			for (int i = 0; i < Math.random() * 3 + 1; i++)	
-				addNewPlat();
+				addNewOrder();
 			
 			double randomTime = Math.random() * 7 + 5;
 			
@@ -47,7 +52,7 @@ public class Main {
 				if (date.getTime() - orderDate.getTime() > randomTime * 1000) {
 					randomTime = Math.random() * 3 + 2;
 					orderDate = date;
-					addNewPlat();
+					addNewOrder();
 				}
 				
 				if (date.getTime() - refreshDate.getTime() > 1000) {
@@ -77,12 +82,12 @@ public class Main {
 		sc.close();
 	}
 	
-	private static void addNewPlat() {
+	private static void addNewOrder() {
 		
 		Random rdm = new Random();
-		Order plat = new Order(receipeList.get(rdm.nextInt(receipeList.size())));
+		Order order = coldReceipeList.get(rdm.nextInt(coldReceipeList.size())).createOrder();
 		
-		if (totalOrders < NB_ORDERS_GAME && orders.add(plat)) {
+		if (totalOrders < NB_ORDERS_GAME && orders.add(order)) {
 			totalOrders++;
 		}
 	}
@@ -90,6 +95,8 @@ public class Main {
 	public static void printHUD() {
 		orders.removeDelayedOrders();
 		PrintTools.clearScreen();
+		System.out.println("Fours:");
+		System.out.println(furnaces);
 		System.out.println("Commandes:");
 		System.out.println(orders);
 		printFoodTruck();

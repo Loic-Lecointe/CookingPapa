@@ -7,19 +7,21 @@ public class Receipe {
 	private final String name;
 	private final List<Ingredient> mandatoryIngredients;
 	private final List<Ingredient> optionalIngredients;
+	private final boolean isHot;
 	
-	public Receipe(String name, List<Ingredient> mandatoryIngredients, List<Ingredient> optionalIngredients) {
+	public Receipe(String name, List<Ingredient> mandatoryIngredients, List<Ingredient> optionalIngredients, boolean isHot) {
 		this.name = name;
 		this.mandatoryIngredients = new ArrayList<>(mandatoryIngredients);
 		this.optionalIngredients = new ArrayList<>(optionalIngredients);
+		this.isHot = isHot;
 	}
 	
-	public Receipe(String name, List<Ingredient> mandatoryIngredients) {
-		this(name, mandatoryIngredients, new ArrayList<>());
+	public Receipe(String name, List<Ingredient> mandatoryIngredients, boolean isHot) {
+		this(name, mandatoryIngredients, new ArrayList<>(), isHot);
 	}
 	
 	public Receipe() {
-		this(null, new ArrayList<>());
+		this(null, new ArrayList<>(), false);
 	}
 	
 	public String getName() {
@@ -32,5 +34,16 @@ public class Receipe {
 
 	public List<Ingredient> getOptionalIngredients() {
 		return new ArrayList<>(optionalIngredients);
+	}
+	
+	public boolean getIsHot() {
+		return isHot;
+	}
+	
+	public Order createOrder() {
+		if (isHot) {
+			return new HotOrder(this);
+		}
+		return new Order(this);
 	}
 }

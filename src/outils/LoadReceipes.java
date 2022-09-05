@@ -12,13 +12,25 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class LoadReceipes {
 	
-	public static ArrayList<Receipe> loadListePlat(){
+	private static ArrayList<Receipe> loadReceipes(boolean isHot) {
 		String path = System.getProperty("user.dir")+"/donnees/";
 		ObjectMapper om = new ObjectMapper();
 		ArrayList<Receipe> receipes = new ArrayList<>();
 
 		try {
 			receipes.addAll(om.readValue(new File(path+"/json/ListePlats.json"), new TypeReference<List<Receipe>>() {}));
+			for (int i = 0; i < receipes.size(); i++) {
+				// TODO: Pas très beau ça serait bien de l'améliorer
+				if (isHot) {
+					if (!receipes.get(i).getIsHot()) {
+						receipes.remove(i);
+					}
+				} else {
+					if (receipes.get(i).getIsHot()) {
+						receipes.remove(i);
+					}
+				}
+			}
 		} catch (StreamReadException e) {
 			e.printStackTrace();
 			System.exit(0);
@@ -32,5 +44,13 @@ public class LoadReceipes {
 			System.exit(0);
 		}
 		return receipes;
+	}
+	
+	public static ArrayList<Receipe> loadColdReceipes(){
+		return loadReceipes(false);
+	}
+	
+	public static ArrayList<Receipe> loadHotReceipes(){
+		return loadReceipes(true);
 	}
 }

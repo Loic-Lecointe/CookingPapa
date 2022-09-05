@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class Order {
 	private final static int TIME_BEFORE_LEAVING = 30;
-	private final Date time_start = new Date();
+	protected final Date time_start = new Date();
 	
 	private final Receipe receipe;
 	
@@ -75,5 +75,9 @@ public class Order {
 	
 	public boolean isDelayed() {
 		return getTimeBeforeLeaving() <= 0;
+	}
+	
+	public boolean isHot() {
+		return false;
 	}
 }

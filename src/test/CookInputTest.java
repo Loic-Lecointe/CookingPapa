@@ -25,7 +25,7 @@ class CookInputTest {
 		ingredients.add(Ingredient.SAUCE_TOMATE);
 		ingredients.add(Ingredient.JAMBON);
 		
-		Receipe pizzaReceipe = new Receipe("Pizza", ingredients);
+		Receipe pizzaReceipe = new Receipe("Pizza", ingredients, false);
 		
 		pizza = new Order(pizzaReceipe);
 		pizza.setIngredients(ingredients);
