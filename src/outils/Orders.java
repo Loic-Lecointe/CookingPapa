@@ -35,7 +35,6 @@ public class Orders {
 	public int removeDelayedOrders(Furnaces furnaces) {
 		int nbSuppr = 0;
 		for (int i = 0; i < orders.length; i++) {
-			
 			if (orders[i] != null && orders[i].isDelayed()) {
 				furnaces.remove(orders[i]);
 				remove(i);
