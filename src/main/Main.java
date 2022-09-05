@@ -178,7 +178,7 @@ public class Main {
 			if (it.getInput() != null) {
 				try {
 					takeOrder(Integer.valueOf(it.getInput()) - 1);
-				} catch (NumberFormatException | NullPointerException e) {}
+				} catch (NumberFormatException | NullPointerException | ArrayIndexOutOfBoundsException e) {}
 				printHUD();
 			}
 		}
