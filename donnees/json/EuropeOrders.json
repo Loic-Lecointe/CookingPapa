@@ -12,8 +12,14 @@
         "isHot":"true"
     },
     {
-        "name":"boeuf braise aux carottes",
-        "mandatoryIngredients":["BOEUF","CAROTTE","OIGNONS"],
+        "name":"Poireaux a la vinaigrette",
+        "mandatoryIngredients":["POIREAU","OEUF","ECHALOTTE"],
+        "optionalIngredients":[],
+        "isHot":"true"
+    },
+    {
+        "name":"Boeuf braise a la biere",
+        "mandatoryIngredients":["BOEUF","CAROTTE","BIERE","CELERI","OIGNON","AIL"],
         "optionalIngredients":[],
         "isHot":"true"
     }

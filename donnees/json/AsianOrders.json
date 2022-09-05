@@ -12,9 +12,15 @@
         "isHot":"true"
     },
     {
-        "name":"saladelaab de saumon ou de champignons",
+        "name":"salade laab de saumon ou de champignons",
         "mandatoryIngredients":["SAUMON","CHAMPIGNON","SALADE","PIMENT","RIZ"],
         "optionalIngredients":[],
         "isHot":"true"
+    },
+    {
+        "name":"Salade de papaye verte",
+        "mandatoryIngredients":["PAPAYE","TOMATE","PIMENT","AUBERGINE","CAROTTE","AIL","CITRON"],
+        "optionalIngredients":[],
+        "isHot":"false"
     }
 ]

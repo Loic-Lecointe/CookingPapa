@@ -31,6 +31,14 @@ public enum Ingredient {
 	CORNICHON("cornichon",'c'),
 	POMME_DE_LA_TERRE("pomme de la terre",'p'),
 	GOUDA("gouda",'g'),
+	BIERE("biere",'i'),
+	CELERI("celeri",'e'),
+	AIL("ail",'a'),
+	POIREAU("poireau",'p'),
+	OEUF("oeuf",'o'),
+	ECHALOTTE("echalotte",'e'),
+	AUBERGINE("aubergine",'u'),
+	CITRON("citron",'i'),
 	OIGNON("oignon",'o');
 	
 	private final String name;
