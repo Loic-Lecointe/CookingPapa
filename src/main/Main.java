@@ -106,7 +106,7 @@ public class Main {
 		} catch(NullPointerException npe) {
 			System.out.println("Cette commande n'est pas disponible");
 		} catch(ArrayIndexOutOfBoundsException aiooe) {
-			System.out.println("Le chiffre donné est trop grand");
+			System.out.println("Le chiffre donnï¿½ est trop grand");
 		}
 	}
 	
@@ -181,7 +181,7 @@ public class Main {
 			if (it.getInput() != null) {
 				try {
 					takeOrder(Integer.valueOf(it.getInput()) - 1);
-				} catch (NumberFormatException e) {}
+				} catch (NumberFormatException | NullPointerException e) {}
 				printHUD();
 			}
 		}
