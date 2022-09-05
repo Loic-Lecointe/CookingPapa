@@ -102,14 +102,18 @@ public class Main {
 		LocalDateTime finDuJeu = LocalDateTime.now();
 		System.out.println("Fin");
 		Calcul_score score = new Calcul_score(debutDuJeu, finDuJeu, plats_reussi, plats_echoue,5);
-		System.out.println("Votre score est de : " + score.calcul_score_final(false)+".\nEntrez un nom ou un pseudo pour être enregistré sur le leaderboard :");
-		Scanner sc = new Scanner(System.in);
-		String input = sc.nextLine();
-		ArrayList<Joueur> leaderboard = TableauScores.loadScores();
-		leaderboard.add(new Joueur(input,score.calcul_score_final(false)));
-		TableauScores.saveScores(leaderboard);
-		System.out.println("Score enregistré. Merci d'avoir joué !");
-		sc.close();
+		System.out.println("Votre score est de : " + score.calcul_score_final(false));
+		if(infini) {
+			System.out.println("Entrez un nom ou un pseudo pour etre enregistre sur le leaderboard :");
+			Scanner sc = new Scanner(System.in);
+			String input = sc.nextLine();
+			ArrayList<Joueur> leaderboard = TableauScores.loadScores();
+			leaderboard.add(new Joueur(input,score.calcul_score_final(false)));
+			TableauScores.saveScores(leaderboard);
+			System.out.println("Score enregistre. Merci d'avoir joue !");
+			sc.close();
+		}
+		
 	}
 	
 	public static void playGame() {
