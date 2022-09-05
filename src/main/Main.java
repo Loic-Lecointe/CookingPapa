@@ -93,7 +93,7 @@ public class Main {
 	}
 
 	public static void printHUD() {
-		nbLife -= orders.removeDelayedOrders();
+		nbLife -= orders.removeDelayedOrders(furnaces);
 		PrintTools.clearScreen();
 		System.out.println("Fours:");
 		System.out.println(furnaces);
@@ -161,7 +161,7 @@ public class Main {
 	public static void jeu(boolean infini) {
 		LocalDateTime debutDuJeu = LocalDateTime.now();
 		
-		if(infini) {
+		if(!infini) {
 			playGame();
 		} else {
 			while(nbLife>0) {
