@@ -119,10 +119,10 @@ public class Main {
 		LocalDateTime debutDuJeu = LocalDateTime.now();
 		
 		if(!infini) {
-			playGame();
+			playGame(niveau);
 		} else {
 			isInfinite = true;
-			playGame();
+			playGame(niveau);
 		}
 		
 		LocalDateTime finDuJeu = LocalDateTime.now();
@@ -144,7 +144,7 @@ public class Main {
 		
 	}
 	
-	public static void playGame() {
+	public static void playGame(int niveau) {
 		Date date;
 		Date refreshDate = new Date();
 		Date orderDate = new Date();
@@ -153,7 +153,7 @@ public class Main {
 		for (int i = 0; i < Math.random() * 3 + 1; i++)	
 			addNewOrder();
 		
-		double randomTime = Math.random() * 10 + 5;
+		double randomTime = (Math.random() * 10 + 5) / niveau;
 		
 		while (!isFinished()) {
 			
@@ -166,7 +166,7 @@ public class Main {
 				date = new Date();
 				
 				if (date.getTime() - orderDate.getTime() > randomTime * 1000) {
-					randomTime = Math.random() * 10 + 5;
+					randomTime = (Math.random() * 10 + 5) / niveau;
 					orderDate = date;
 					addNewOrder();
 				}
