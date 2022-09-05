@@ -17,7 +17,8 @@ public class Menu {
 		
 		Verification(4);
 		if(choix == 1) {
-			return;
+			//Choix du mode de jeu (entre niveaux et mode infini)
+			Main.jeu(true);
 		} else if (choix == 2) {
 			PrintTools.clearScreen();
 			PrintTools.printPath("/donnees/regles");
