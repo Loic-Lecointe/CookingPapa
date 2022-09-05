@@ -22,7 +22,6 @@ public enum Ingredient {
 	TOMATE("tomate",'t'),
 	EPICE("epice",'e'),
 	PIMENT("piment",'i'),
-<<<<<<< HEAD
 	AVOCAT("avocat",'v'),
 	POIVRON("poivron",'x'),
 	CREVETTE("crevette",'y'),
@@ -30,13 +29,6 @@ public enum Ingredient {
 	SAUMON("saumon",'f'),
 	CORNICHON("cornichon",'c'),
 	OIGNON("oignon",'o');
-	
-=======
-	OIGNON("oignon",'o'),
-	RIZ("riz",'r'),
-	CORNICHON("cornichon",'c'),
-	FRITE("frite",'f');
->>>>>>> branch 'main' of https://gitlab.univ-lille.fr/2022-projet-agile-de-rentree/groupe-15
 	
 	private final String name;
 	private final char shortcut;
