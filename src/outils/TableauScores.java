@@ -38,29 +38,31 @@ public class TableauScores {
 
 
 	public static ArrayList<Player> loadScores(){
+		
 		String path = System.getProperty("user.dir")+"/donnees/json/tabScores.json";
-		ObjectMapper om = new ObjectMapper();
+		File f = new File(path);
 		ArrayList<Player> scores = new ArrayList<>();
-
-		try {
-			scores.addAll(om.readValue(new File(path+"/json/tabScores.json"), new TypeReference<List<Player>>() {}));
-		} catch (StreamReadException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			System.exit(0);
-
-		} catch (DatabindException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();			
-			System.exit(0);
-
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			System.exit(0);
-
+		if(f.exists() && !f.isDirectory()) {
+			ObjectMapper om = new ObjectMapper();
+			try {
+				scores.addAll(om.readValue(f, new TypeReference<List<Player>>() {}));
+			} catch (StreamReadException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				System.exit(0);
+	
+			} catch (DatabindException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();			
+				System.exit(0);
+	
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				System.exit(0);
+	
+			}
 		}
-
 
 		return scores;
 
