@@ -10,8 +10,8 @@ import java.util.Scanner;
 import outils.*;
 
 public class Main {
-	static List<Recipe> receipeList = new ArrayList<>();
-	static List<Recipe> hotReceipeList = new ArrayList<>();
+	static List<Recipe> recipeList = new ArrayList<>();
+	static List<Recipe> hotrecipeList = new ArrayList<>();
 	private static Scanner sc = new Scanner(System.in);
 	static Orders orders = new Orders();
 	static Furnaces furnaces = new Furnaces();
@@ -31,7 +31,7 @@ public class Main {
 	private static void addNewOrder() {
 		
 		Random rdm = new Random();
-		MealOrder order = receipeList.get(rdm.nextInt(receipeList.size())).createOrder();
+		MealOrder order = recipeList.get(rdm.nextInt(recipeList.size())).createOrder();
 		
 		if ((totalOrders < NB_ORDERS_GAME || isInfinite)&& orders.add(order)) {
 			totalOrders++;
@@ -114,8 +114,8 @@ public class Main {
 	
 	
 	public static void jeu(boolean infini, int niveau) {
-		receipeList = LoadRecipes.loadColdReceipes(niveau);
-		receipeList.addAll(LoadRecipes.loadHotReceipes(niveau));
+		recipeList = LoadRecipes.loadColdrecipes(niveau);
+		recipeList.addAll(LoadRecipes.loadHotrecipes(niveau));
 		LocalDateTime debutDuJeu = LocalDateTime.now();
 		
 		if(!infini) {
@@ -166,7 +166,7 @@ public class Main {
 				date = new Date();
 				
 				if (date.getTime() - orderDate.getTime() > randomTime * 1000) {
-					randomTime = Math.random() * 5 + 3;
+					randomTime = Math.random() * 10 + 5;
 					orderDate = date;
 					addNewOrder();
 				}
