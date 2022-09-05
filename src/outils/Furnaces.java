@@ -38,7 +38,7 @@ public class Furnaces {
 	public String toString() {
 		StringBuilder res = new StringBuilder();
 		for (int i = 0; i < MAX_FURNACES; i++) {
-			res.append((char) (i+'a') + ": ");
+			res.append("- ");
 			if (food[i] != null) {
 				res.append(food[i].getName() + " " + food[i].getProgressBar());
 			} else {

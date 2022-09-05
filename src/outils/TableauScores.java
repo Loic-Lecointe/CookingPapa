@@ -38,42 +38,50 @@ public class TableauScores {
 
 
 	public static ArrayList<Player> loadScores(){
-		String path = System.getProperty("user.dir")+"/donnees/";
-		ObjectMapper om = new ObjectMapper();
+		
+		String path = System.getProperty("user.dir")+"/donnees/json/tabScores.json";
+		File f = new File(path);
 		ArrayList<Player> scores = new ArrayList<>();
-
-		try {
-			scores.addAll(om.readValue(new File(path+"/json/tabScores.json"), new TypeReference<List<Player>>() {}));
-		} catch (StreamReadException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			System.exit(0);
-
-		} catch (DatabindException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();			
-			System.exit(0);
-
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			System.exit(0);
-
+		if(f.exists() && !f.isDirectory()) {
+			ObjectMapper om = new ObjectMapper();
+			try {
+				scores.addAll(om.readValue(f, new TypeReference<List<Player>>() {}));
+			} catch (StreamReadException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				System.exit(0);
+	
+			} catch (DatabindException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();			
+				System.exit(0);
+	
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				System.exit(0);
+	
+			}
 		}
-
 
 		return scores;
 
 	}
 
 	public static void printScores() {
-
-		ArrayList<Player> liste = loadScores();
-		int cpt = 0;
-		while(cpt < 10 && cpt <liste.size() && !liste.isEmpty()){
-			System.out.println("Joueur "+(cpt+1)+" : "+liste.get(cpt).getName()+"\t"+liste.get(cpt).getScore()+" points");
-			cpt++;
+		String path = System.getProperty("user.dir")+"/donnees/json/tabScores.json";
+		File f = new File(path);
+		if(f.exists() && !f.isDirectory()) { 
+			ArrayList<Player> liste = loadScores();
+			int cpt = 0;
+			while(cpt < 10 && cpt <liste.size() && !liste.isEmpty()){
+				System.out.println("Joueur "+(cpt+1)+" : "+liste.get(cpt).getName()+"\t"+liste.get(cpt).getScore()+" points");
+				cpt++;
+			}
+		}else {
+			System.out.println("Aucun score n'a encore été enregistré. Terminez une partie pour commencer à remplir le leaderboard !");
 		}
+
 	}
 
 	public static void deleteScores() {

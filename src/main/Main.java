@@ -21,66 +21,12 @@ public class Main {
 	private static int nbLife = 3;
 	private static int plats_reussi;
 	private static int plats_echoue;
+	private static boolean isInfinite = false;
 	
 	public static void main(String[] args) {
-		receipeList.addAll(hotReceipeList);
 		Menu.start();
 		
-		LocalDateTime debutDuJeu = LocalDateTime.now();
 		
-		while (!isFinished()) {
-			
-			ActionInput it = new ActionInput();
-			it.start();
-			
-			Date date;
-			Date refreshDate = new Date();
-			Date orderDate = new Date();
-			
-			System.out.println(hotReceipeList.get(0).createOrder());
-			
-			// Ajoute quelques plats à servir au début de la partie
-			for (int i = 0; i < Math.random() * 3 + 1; i++)	
-				addNewOrder();
-			
-			double randomTime = Math.random() * 7 + 5;
-			
-			printHUD();
-			
-			while (it.getInput() == null && !isFinished()) {
-				date = new Date();
-				
-				if (date.getTime() - orderDate.getTime() > randomTime * 1000) {
-					randomTime = Math.random() * 3 + 2;
-					orderDate = date;
-					addNewOrder();
-				}
-				
-				if (date.getTime() - refreshDate.getTime() > 1000) {
-					refreshDate = date;				
-					printHUD();
-				}
-			}
-			
-			if (it.getInput() != null) {
-				try {
-					takeOrder(Integer.valueOf(it.getInput()) - 1);
-				} catch (NumberFormatException e) {}
-				printHUD();
-			}
-		}
-		
-		LocalDateTime finDuJeu = LocalDateTime.now();
-		System.out.println("Fin");
-		Calcul_score score = new Calcul_score(debutDuJeu, finDuJeu, plats_reussi, plats_echoue,5);
-		System.out.println("Votre score est de : " + score.calcul_score_final(false)+".\nEntrez un nom ou un pseudo pour être enregistré sur le leaderboard :");
-		Scanner sc = new Scanner(System.in);
-		String input = sc.nextLine();
-		ArrayList<Player> leaderboard = TableauScores.loadScores();
-		leaderboard.add(new Player(input,score.calcul_score_final(false)));
-		TableauScores.saveScores(leaderboard);
-		System.out.println("Score enregistré. Merci d'avoir joué !");
-		sc.close();
 	}
 	
 	private static void addNewOrder() {
@@ -88,7 +34,7 @@ public class Main {
 		Random rdm = new Random();
 		Order order = receipeList.get(rdm.nextInt(receipeList.size())).createOrder();
 		
-		if (totalOrders < NB_ORDERS_GAME && orders.add(order)) {
+		if ((totalOrders < NB_ORDERS_GAME || isInfinite)&& orders.add(order)) {
 			totalOrders++;
 		}
 	}
@@ -101,6 +47,9 @@ public class Main {
 		System.out.println("Commandes:");
 		System.out.println(orders);
 		printFoodTruck();
+		if(isInfinite) {
+			System.out.println("NbLife :" + nbLife);
+		}
 	}
 	
 	public static void printFoodTruck() {
@@ -123,7 +72,9 @@ public class Main {
 		Order order = orders.get(index);
 		
 		PrintTools.clearScreen();
+		try {
 			
+		
 		if (!order.isHot() || !((HotOrder) order).isCooking() && !((HotOrder) order).isCooked()) {
 			System.out.println("Plat: " + order.getName());
 			System.out.println("Ingrédients: " + order.getIngredients() + "\n");
@@ -151,10 +102,13 @@ public class Main {
 		if (!order.isHot() || ((HotOrder) order).isCooked()) {
 			orders.remove(index);
 		}
+		} catch(NullPointerException npe) {
+			System.out.println("Cette commande n'est pas disponible");
+		}
 	}
 	
 	public static boolean isFinished() {
-		return (totalOrders == NB_ORDERS_GAME && orders.getNbOrders() == 0) || nbLife==0;
+		return !isInfinite?(totalOrders == NB_ORDERS_GAME && orders.getNbOrders() == 0):nbLife==0;
 	}
 	
 	
@@ -165,11 +119,10 @@ public class Main {
 		LocalDateTime debutDuJeu = LocalDateTime.now();
 		
 		if(!infini) {
-			playGame(niveau);
+			playGame();
 		} else {
-			while(nbLife>0) {
-				playGame(0);
-			}
+			isInfinite = true;
+			playGame();
 		}
 		
 		LocalDateTime finDuJeu = LocalDateTime.now();
@@ -189,7 +142,7 @@ public class Main {
 		
 	}
 	
-	public static void playGame(int niveau) {
+	public static void playGame() {
 		while (!isFinished()) {
 			
 			ActionInput it = new ActionInput();
