@@ -12,33 +12,33 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class LoadRecipes {
 	
-	private static ArrayList<Recipe> loadReceipes(boolean isHot, int niveau) {
+	private static ArrayList<Recipe> loadrecipes(boolean isHot, int niveau) {
 		String path = System.getProperty("user.dir")+"/donnees/";
 		ObjectMapper om = new ObjectMapper();
-		ArrayList<Recipe> receipes = new ArrayList<>();
+		ArrayList<Recipe> recipes = new ArrayList<>();
 
 		try {
 			if(niveau == 1) {
-				receipes.addAll(om.readValue(new File(path+"/json/AsianOrders.json"), new TypeReference<List<Recipe>>() {}));
+				recipes.addAll(om.readValue(new File(path+"/json/AsianOrders.json"), new TypeReference<List<Recipe>>() {}));
 			} else if (niveau == 2) {
-				receipes.addAll(om.readValue(new File(path+"/json/EuropeOrders.json"), new TypeReference<List<Recipe>>() {}));
+				recipes.addAll(om.readValue(new File(path+"/json/EuropeOrders.json"), new TypeReference<List<Recipe>>() {}));
 			} else if (niveau == 3){
-				receipes.addAll(om.readValue(new File(path+"/json/AmericanOrders.json"), new TypeReference<List<Recipe>>() {}));
+				recipes.addAll(om.readValue(new File(path+"/json/AmericanOrders.json"), new TypeReference<List<Recipe>>() {}));
 
 			} else {
-				receipes.addAll(om.readValue(new File(path+"/json/AmericanOrders.json"), new TypeReference<List<Recipe>>() {}));
-				receipes.addAll(om.readValue(new File(path+"/json/AsianOrders.json"), new TypeReference<List<Recipe>>() {}));
-				receipes.addAll(om.readValue(new File(path+"/json/EuropeOrders.json"), new TypeReference<List<Recipe>>() {}));
+				recipes.addAll(om.readValue(new File(path+"/json/AmericanOrders.json"), new TypeReference<List<Recipe>>() {}));
+				recipes.addAll(om.readValue(new File(path+"/json/AsianOrders.json"), new TypeReference<List<Recipe>>() {}));
+				recipes.addAll(om.readValue(new File(path+"/json/EuropeOrders.json"), new TypeReference<List<Recipe>>() {}));
 			}
-			for (int i = 0; i < receipes.size(); i++) {
+			for (int i = 0; i < recipes.size(); i++) {
 				// TODO: Pas très beau ça serait bien de l'améliorer
 				if (isHot) {
-					if (!receipes.get(i).getIsHot()) {
-						receipes.remove(i);
+					if (!recipes.get(i).getIsHot()) {
+						recipes.remove(i);
 					}
 				} else {
-					if (receipes.get(i).getIsHot()) {
-						receipes.remove(i);
+					if (recipes.get(i).getIsHot()) {
+						recipes.remove(i);
 					}
 				}
 			}
@@ -54,14 +54,14 @@ public class LoadRecipes {
 			e.printStackTrace();
 			System.exit(0);
 		}
-		return receipes;
+		return recipes;
 	}
 	
-	public static ArrayList<Recipe> loadColdReceipes(int niveau){
-		return loadReceipes(false,niveau);
+	public static ArrayList<Recipe> loadColdrecipes(int niveau){
+		return loadrecipes(false,niveau);
 	}
 	
-	public static ArrayList<Recipe> loadHotReceipes(int niveau){
-		return loadReceipes(true,niveau);
+	public static ArrayList<Recipe> loadHotrecipes(int niveau){
+		return loadrecipes(true,niveau);
 	}
 }

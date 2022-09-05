@@ -6,8 +6,8 @@ public class HotMealOrder extends MealOrder {
 	private static final int TIME_TO_COOK = 10;
 	private Date time_start_cook;
 	
-	public HotMealOrder(Recipe receipe) {
-		super(receipe);
+	public HotMealOrder(Recipe recipe) {
+		super(recipe);
 	}
 	
 	@Override
