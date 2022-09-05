@@ -69,11 +69,11 @@ public class Main {
 	}
 	
 	public static void takeOrder(int index) {
-		Order order = orders.get(index);
 		
-		PrintTools.clearScreen();
 		try {
+			Order order = orders.get(index);
 			
+			PrintTools.clearScreen();
 		
 		if (!order.isHot() || !((HotOrder) order).isCooking() && !((HotOrder) order).isCooked()) {
 			System.out.println("Plat: " + order.getName());
@@ -104,6 +104,8 @@ public class Main {
 		}
 		} catch(NullPointerException npe) {
 			System.out.println("Cette commande n'est pas disponible");
+		} catch(ArrayIndexOutOfBoundsException aiooe) {
+			System.out.println("Le chiffre donné est trop grand");
 		}
 	}
 	
