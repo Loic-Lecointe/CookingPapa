@@ -19,12 +19,16 @@ public class LoadRecipes {
 
 		try {
 			if(niveau == 1) {
-				receipes.addAll(om.readValue(new File(path+"/json/AmericanOrders.json"), new TypeReference<List<Recipe>>() {}));
-			} else if (niveau == 2) {
 				receipes.addAll(om.readValue(new File(path+"/json/AsianOrders.json"), new TypeReference<List<Recipe>>() {}));
-			} else {
+			} else if (niveau == 2) {
 				receipes.addAll(om.readValue(new File(path+"/json/EuropeOrders.json"), new TypeReference<List<Recipe>>() {}));
+			} else if (niveau == 3){
+				receipes.addAll(om.readValue(new File(path+"/json/AmericanOrders.json"), new TypeReference<List<Recipe>>() {}));
 
+			} else {
+				receipes.addAll(om.readValue(new File(path+"/json/AmericanOrders.json"), new TypeReference<List<Recipe>>() {}));
+				receipes.addAll(om.readValue(new File(path+"/json/AsianOrders.json"), new TypeReference<List<Recipe>>() {}));
+				receipes.addAll(om.readValue(new File(path+"/json/EuropeOrders.json"), new TypeReference<List<Recipe>>() {}));
 			}
 			for (int i = 0; i < receipes.size(); i++) {
 				// TODO: Pas très beau ça serait bien de l'améliorer

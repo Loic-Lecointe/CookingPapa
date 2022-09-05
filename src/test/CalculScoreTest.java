@@ -20,7 +20,7 @@ public class CalculScoreTest {
 	
 	@Test
 	void testCalculTempsJoue() {
-		assetEquals(c.time_start.until(this.time_end, ChronoUnit.SECONDS),c.calcul_temps_joue());
+		assertEquals(c.time_start.until(this.time_end, ChronoUnit.SECONDS),c.calcul_temps_joue());
 	}
 	
 	@Test
