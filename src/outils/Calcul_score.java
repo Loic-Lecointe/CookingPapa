@@ -35,7 +35,7 @@ public class Calcul_score {
 		score = 0;
 		if(!infinit) {
 			int temps_joue = (int)calcul_temps_joue();
-			if(temps_joue < this.time_objectif * 60) {
+			if((temps_joue < this.time_objectif * 60) && (plats_reussi>=1)) {
 				score = score + ((time_objectif*60) - temps_joue)*2;
 			}
 			if(temps_joue > this.time_objectif * 60) {
