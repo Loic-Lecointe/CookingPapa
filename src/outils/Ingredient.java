@@ -19,6 +19,7 @@ public enum Ingredient {
 	ANANAS("ananas",'a'),
 	MOZARELLA("mozarella",'m'),
 	SAUCISSE_DE_TOULOUSE("saucisse de Toulouse",'d'),
+	CAROTTE("carotte",'c'),
 	SALADE("salade",'w'),
 	TOMATE("tomate",'w'),
 	EPICE("epice",'e'),
