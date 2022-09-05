@@ -37,8 +37,6 @@ public class Main {
 			Date refreshDate = new Date();
 			Date orderDate = new Date();
 			
-			System.out.println(hotReceipeList.get(0).createOrder());
-			
 			// Ajoute quelques plats à servir au début de la partie
 			for (int i = 0; i < Math.random() * 3 + 1; i++)	
 				addNewOrder();
@@ -65,7 +63,7 @@ public class Main {
 			if (it.getInput() != null) {
 				try {
 					takeOrder(Integer.valueOf(it.getInput()) - 1);
-				} catch (NumberFormatException e) {}
+				} catch (NumberFormatException | NullPointerException e) {}
 				printHUD();
 			}
 		}
@@ -224,7 +222,10 @@ public class Main {
 			
 			if (it.getInput() != null) {
 				try {
-					takeOrder(Integer.valueOf(it.getInput()) - 1);
+					int choice = Integer.valueOf(it.getInput());
+					if (choice > 0 && choice < Orders.MAX_ORDERS && orders.get(choice-1) != null) {
+						takeOrder(choice-1);
+					}
 				} catch (NumberFormatException e) {}
 				printHUD();
 			}
