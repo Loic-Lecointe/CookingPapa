@@ -1,9 +1,22 @@
-
-    [
-        {"name": "Pizza",
-        "mandatoryIngredients":["PATE_A_PIZZA","SAUCE_TOMATE"],
-        "optionalIngredients":["JAMBON","CHAMPIGNON","CHORIZO","FROMAGE","ANANAS","MOZARELLA","SAUCISSE_DE_TOULOUSE"]},
-        {"name":"Hamburger",
-        "mandatoryIngredients":["PAIN","STEAK"],
-        "optionalIngredients":["FROMAGE","SAUCISSE_DE_TOULOUSE"]}
-    ]
+[
+    {
+        "name":"Pizza",
+        "ingredientsObligatoires":["PATE_A_PIZZA","SAUCE_TOMATE"],
+        "ingredientsOptionnels":["JAMBON","CHAMPIGNON","CHORIZO","FROMAGE","ANANAS","MOZARELLA","SAUCISSE_DE_TOULOUSE"]
+    },
+    {
+        "name":"Hamburger",
+        "ingredientsObligatoires":["PAIN","STEAK"],
+        "ingredientsOptionnels":["FROMAGE","SAUCISSE_DE_TOULOUSE","SALADE","TOMATE","OIGNON","CORNICHON"]
+    },
+    {
+        "name":"Burrito",
+        "ingredientsObligatoires":["TORTILLA","BOEUF"],
+        "ingredientsOptionnels":["TOMATE","EPICE","PIMENT","OIGNON","SALADE","RIZ"]
+    },
+    {
+        "name":"Kebab",
+        "ingredientsObligatoires":["PAIN","VIANDE_A_KEBAB"],
+        "ingredientsOptionnels":["SALADE","TOMATE","OIGNON","FRITE"]
+    }
+]
