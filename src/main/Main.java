@@ -175,8 +175,11 @@ public class Main {
 			
 			if (it.getInput() != null) {
 				try {
-					takeOrder(Integer.valueOf(it.getInput()) - 1);
-				} catch (NumberFormatException | NullPointerException | ArrayIndexOutOfBoundsException e) {}
+					int choice = Integer.valueOf(it.getInput());
+					if (choice > 0 && choice < Orders.MAX_ORDERS && orders.get(choice - 1) != null) {
+						takeOrder(choice - 1);
+					}
+				} catch (NumberFormatException e) {}
 				printHUD();
 			}
 		}

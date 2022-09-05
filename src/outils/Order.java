@@ -41,7 +41,10 @@ public class Order {
 	public void setIngredients(List<Ingredient> ingredients) {
 		this.ingredients = ingredients;
 	}
+<<<<<<< HEAD
 	
+=======
+>>>>>>> branch 'main' of https://gitlab.univ-lille.fr/2022-projet-agile-de-rentree/groupe-15
 
 	@Override
 	public String toString() {
