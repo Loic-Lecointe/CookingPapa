@@ -9,12 +9,12 @@ public class MealOrder {
 	private final static int TIME_BEFORE_LEAVING = 30;
 	protected final Date time_start = new Date();
 	
-	private final Recipe receipe;
+	private final Recipe recipe;
 	
 	private List<Ingredient> ingredients;
 	
-	public MealOrder(Recipe receipe) {
-		this.receipe= receipe; 
+	public MealOrder(Recipe recipe) {
+		this.recipe= recipe; 
 		this.ingredients = new ArrayList<>();
 		generateIngredients(5);
 	}
@@ -22,16 +22,16 @@ public class MealOrder {
 	public void generateIngredients(int difficulte) {
 		Random rdm = new Random();
 		int nb = rdm.nextInt(difficulte);
-		this.ingredients.addAll(receipe.getMandatoryIngredients());
+		this.ingredients.addAll(recipe.getMandatoryIngredients());
 		for(int i = 0; i<nb; i++) {
-			if (receipe.getOptionalIngredients().size() != 0) {
-				this.ingredients.add(receipe.getOptionalIngredients().get(rdm.nextInt(receipe.getOptionalIngredients().size())));
+			if (recipe.getOptionalIngredients().size() != 0) {
+				this.ingredients.add(recipe.getOptionalIngredients().get(rdm.nextInt(recipe.getOptionalIngredients().size())));
 			}
 		}
 	}
 	
 	public String getName() {
-		return receipe.getName();
+		return recipe.getName();
 	}
 	
 	public List<Ingredient> getIngredients() {
@@ -53,15 +53,15 @@ public class MealOrder {
 		
 		res.append("\n┉┉┉ Ingrédients obligatoires ┉┉┉\n");
 		
-		for(Ingredient ingredient : receipe.getMandatoryIngredients()) {
+		for(Ingredient ingredient : recipe.getMandatoryIngredients()) {
 			res.append(ingredient + "\n");
 		}
 		
-		if (receipe.getOptionalIngredients().size() != 0) {
+		if (recipe.getOptionalIngredients().size() != 0) {
 			res.append("\n┉┉┉ Ingrédients supplémentaires ┉┉┉\n");
 		}
 		
-		for(Ingredient ingredient : receipe.getOptionalIngredients()) {
+		for(Ingredient ingredient : recipe.getOptionalIngredients()) {
 			res.append(ingredient + "\n");
 		}
 		

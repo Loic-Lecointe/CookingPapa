@@ -32,7 +32,7 @@ public class Menu {
 			System.out.print("\n\nVeuillez appuyer sur entree pour revenir au menu");
 			sc = new Scanner(System.in);
 			sc.nextLine();
-			start();
+			start(); 
 
 		} else {
 			System.out.println("Au revoir");
