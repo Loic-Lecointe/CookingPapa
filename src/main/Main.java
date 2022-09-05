@@ -34,7 +34,7 @@ public class Main {
 	}
 
 	public static void printHUD() {
-		orders.removeDelayedOrders();
+		nbLife -= orders.removeDelayedOrders();
 		PrintTools.clearScreen();
 		System.out.println("Commandes:");
 		System.out.println(orders);

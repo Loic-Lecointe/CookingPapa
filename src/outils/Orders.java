@@ -32,14 +32,17 @@ public class Orders {
 		}
 	}
 	
-	public void removeDelayedOrders() {
+	public int removeDelayedOrders() {
+		int nbSuppr = 0;
 		for (int i = 0; i < orders.length; i++) {
 			if (orders[i] != null && orders[i].isDelayed()) {
 				remove(i);
+				nbSuppr++;
 			} else {
 				i++;
 			}
 		}
+		return nbSuppr;
 	}
 
 	@Override
