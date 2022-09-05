@@ -12,7 +12,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class LoadReceipes {
 	
-	private static ArrayList<Receipe> loadReceipes(boolean isHot) {
+	private static ArrayList<Receipe> loadReceipes(boolean isHot, int niveau) {
 		String path = System.getProperty("user.dir")+"/donnees/";
 		ObjectMapper om = new ObjectMapper();
 		ArrayList<Receipe> receipes = new ArrayList<>();
@@ -46,11 +46,11 @@ public class LoadReceipes {
 		return receipes;
 	}
 	
-	public static ArrayList<Receipe> loadColdReceipes(){
-		return loadReceipes(false);
+	public static ArrayList<Receipe> loadColdReceipes(int niveau){
+		return loadReceipes(false,niveau);
 	}
 	
-	public static ArrayList<Receipe> loadHotReceipes(){
-		return loadReceipes(true);
+	public static ArrayList<Receipe> loadHotReceipes(int niveau){
+		return loadReceipes(true,niveau);
 	}
 }
