@@ -23,62 +23,7 @@ public class Main {
 	private static int plats_echoue;
 	
 	public static void main(String[] args) {
-		receipeList.addAll(hotReceipeList);
 		Menu.start();
-		
-		LocalDateTime debutDuJeu = LocalDateTime.now();
-		
-		while (!isFinished()) {
-			
-			ActionInput it = new ActionInput();
-			it.start();
-			
-			Date date;
-			Date refreshDate = new Date();
-			Date orderDate = new Date();
-			
-			// Ajoute quelques plats à servir au début de la partie
-			for (int i = 0; i < Math.random() * 3 + 1; i++)	
-				addNewOrder();
-			
-			double randomTime = Math.random() * 7 + 5;
-			
-			printHUD();
-			
-			while (it.getInput() == null && !isFinished()) {
-				date = new Date();
-				
-				if (date.getTime() - orderDate.getTime() > randomTime * 1000) {
-					randomTime = Math.random() * 3 + 2;
-					orderDate = date;
-					addNewOrder();
-				}
-				
-				if (date.getTime() - refreshDate.getTime() > 1000) {
-					refreshDate = date;				
-					printHUD();
-				}
-			}
-			
-			if (it.getInput() != null) {
-				try {
-					takeOrder(Integer.valueOf(it.getInput()) - 1);
-				} catch (NumberFormatException | NullPointerException e) {}
-				printHUD();
-			}
-		}
-		
-		LocalDateTime finDuJeu = LocalDateTime.now();
-		System.out.println("Fin");
-		Calcul_score score = new Calcul_score(debutDuJeu, finDuJeu, plats_reussi, plats_echoue,5);
-		System.out.println("Votre score est de : " + score.calcul_score_final(false)+".\nEntrez un nom ou un pseudo pour être enregistré sur le leaderboard :");
-		Scanner sc = new Scanner(System.in);
-		String input = sc.nextLine();
-		ArrayList<Player> leaderboard = TableauScores.loadScores();
-		leaderboard.add(new Player(input,score.calcul_score_final(false)));
-		TableauScores.saveScores(leaderboard);
-		System.out.println("Score enregistré. Merci d'avoir joué !");
-		sc.close();
 	}
 	
 	private static void addNewOrder() {
@@ -187,7 +132,7 @@ public class Main {
 		
 	}
 	
-	public static void playGame(int niveau) {
+	public static void playGame(int niveau) {		
 		while (!isFinished()) {
 			
 			ActionInput it = new ActionInput();
@@ -222,11 +167,8 @@ public class Main {
 			
 			if (it.getInput() != null) {
 				try {
-					int choice = Integer.valueOf(it.getInput());
-					if (choice > 0 && choice < Orders.MAX_ORDERS && orders.get(choice-1) != null) {
-						takeOrder(choice-1);
-					}
-				} catch (NumberFormatException e) {}
+					takeOrder(Integer.valueOf(it.getInput()) - 1);
+				} catch (NumberFormatException | NullPointerException e) {}
 				printHUD();
 			}
 		}
