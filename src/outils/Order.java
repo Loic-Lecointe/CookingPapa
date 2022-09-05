@@ -61,7 +61,9 @@ public class Order {
 			res.append(ingredient + "\n");
 		}
 		
-		res.append("\n┉┉┉ Ingrédients supplémentaires ┉┉┉\n");
+		if (receipe.getOptionalIngredients().size() != 0) {
+			res.append("\n┉┉┉ Ingrédients supplémentaires ┉┉┉\n");
+		}
 		
 		for(Ingredient ingredient : receipe.getOptionalIngredients()) {
 			res.append(ingredient + "\n");
@@ -81,5 +83,47 @@ public class Order {
 	
 	public boolean isHot() {
 		return false;
+	}
+	
+	public int maxLengthIngredients() {
+		int max = 0;
+		for (Ingredient ingredient: getIngredients()) {
+			if (ingredient.getName().length() > max) {
+				max = ingredient.getName().length();
+			}
+		}
+		return max;
+	}
+	
+	public String repeatCar(int length, char car) {
+		StringBuilder res = new StringBuilder();
+		for (int i = 0; i < length; i++) {
+			res.append(car);
+		}
+		return res.toString();
+	}
+	
+	public String toStringIngredients() {
+		StringBuilder res = new StringBuilder();
+		
+		int size = 40;
+		
+		res.append("┏");
+		res.append(repeatCar(size, '━'));
+		res.append("┓\n");
+		res.append("┃Ingrédients:");
+		res.append(repeatCar(size - "┃Ingrédients:".length() + 1, ' ') + "┃\n");
+		
+		res.append("┣" + repeatCar(size, '━') + "┫\n");
+		
+		for (Ingredient ingredient: getIngredients()) {
+			res.append("┃ - " + ingredient.getName() + repeatCar(size - ("┃ - " + ingredient.getName()).length() + 1, ' ') + "┃\n");
+		}
+		
+		res.append("┗");
+		res.append(repeatCar(size, '━'));
+		res.append("┛\n");
+		
+		return res.toString();
 	}
 }

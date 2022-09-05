@@ -68,11 +68,12 @@ public class Main {
 		PrintTools.clearScreen();
 			
 		if (!order.isHot() || !((HotOrder) order).isCooking() && !((HotOrder) order).isCooked()) {
-			System.out.println("Plat: " + order.getName());
-			System.out.println("Ingrédients: " + order.getIngredients() + "\n");
+			System.out.println("◀◀ Plat: " + order.getName() + " ▶▶");
 			
-			System.out.println("Liste des inputs:");
+			System.out.println("\nListe des inputs:");
 			System.out.println(order.getIngredientsShortcut());
+			
+			System.out.println(order.toStringIngredients());
 			
 			completedOrders++;
 			String finish = "";
