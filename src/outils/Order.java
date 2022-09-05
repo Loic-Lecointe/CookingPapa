@@ -9,11 +9,11 @@ public class Order {
 	private final static int TIME_BEFORE_LEAVING = 30;
 	protected final Date time_start = new Date();
 	
-	private final Receipe receipe;
+	private final Recipe receipe;
 	
 	private List<Ingredient> ingredients;
 	
-	public Order(Receipe receipe) {
+	public Order(Recipe receipe) {
 		this.receipe= receipe; 
 		this.ingredients = new ArrayList<>();
 		generateIngredients(5);

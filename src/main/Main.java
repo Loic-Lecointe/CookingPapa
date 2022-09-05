@@ -10,8 +10,8 @@ import java.util.Scanner;
 import outils.*;
 
 public class Main {
-	static List<Receipe> receipeList = new ArrayList<>();
-	static List<Receipe> hotReceipeList = new ArrayList<>();
+	static List<Recipe> receipeList = new ArrayList<>();
+	static List<Recipe> hotReceipeList = new ArrayList<>();
 	
 	static Orders orders = new Orders();
 	static Furnaces furnaces = new Furnaces();
@@ -76,8 +76,8 @@ public class Main {
 		System.out.println("Votre score est de : " + score.calcul_score_final(false)+".\nEntrez un nom ou un pseudo pour être enregistré sur le leaderboard :");
 		Scanner sc = new Scanner(System.in);
 		String input = sc.nextLine();
-		ArrayList<Joueur> leaderboard = TableauScores.loadScores();
-		leaderboard.add(new Joueur(input,score.calcul_score_final(false)));
+		ArrayList<Player> leaderboard = TableauScores.loadScores();
+		leaderboard.add(new Player(input,score.calcul_score_final(false)));
 		TableauScores.saveScores(leaderboard);
 		System.out.println("Score enregistré. Merci d'avoir joué !");
 		sc.close();
@@ -160,8 +160,8 @@ public class Main {
 	
 	
 	public static void jeu(boolean infini, int niveau) {
-		List<Receipe> receipeList = LoadReceipes.loadColdReceipes(niveau);
-		receipeList.addAll(LoadReceipes.loadHotReceipes(niveau));
+		List<Recipe> receipeList = LoadRecipes.loadColdReceipes(niveau);
+		receipeList.addAll(LoadRecipes.loadHotReceipes(niveau));
 		LocalDateTime debutDuJeu = LocalDateTime.now();
 		
 		if(!infini) {
@@ -180,8 +180,8 @@ public class Main {
 			System.out.println("Entrez un nom ou un pseudo pour etre enregistre sur le leaderboard :");
 			Scanner sc = new Scanner(System.in);
 			String input = sc.nextLine();
-			ArrayList<Joueur> leaderboard = TableauScores.loadScores();
-			leaderboard.add(new Joueur(input,score.calcul_score_final(false)));
+			ArrayList<Player> leaderboard = TableauScores.loadScores();
+			leaderboard.add(new Player(input,score.calcul_score_final(false)));
 			TableauScores.saveScores(leaderboard);
 			System.out.println("Score enregistre. Merci d'avoir joue !");
 			sc.close();

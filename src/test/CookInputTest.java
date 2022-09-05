@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 import outils.CookInput;
 import outils.Ingredient;
 import outils.Order;
-import outils.Receipe;
+import outils.Recipe;
 
 class CookInputTest {
 	
@@ -25,7 +25,7 @@ class CookInputTest {
 		ingredients.add(Ingredient.SAUCE_TOMATE);
 		ingredients.add(Ingredient.JAMBON);
 		
-		Receipe pizzaReceipe = new Receipe("Pizza", ingredients, false);
+		Recipe pizzaReceipe = new Recipe("Pizza", ingredients, false);
 		
 		pizza = new Order(pizzaReceipe);
 		pizza.setIngredients(ingredients);
