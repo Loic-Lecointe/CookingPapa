@@ -41,11 +41,6 @@ public class Order {
 	public void setIngredients(List<Ingredient> ingredients) {
 		this.ingredients = ingredients;
 	}
-	
-	public int getPoints() {
-		// TODO: Créer un système de points automatique
-		return -1;
-	}
 
 	@Override
 	public String toString() {
