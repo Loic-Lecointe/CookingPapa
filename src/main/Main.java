@@ -145,20 +145,20 @@ public class Main {
 	}
 	
 	public static void playGame() {
+		Date date;
+		Date refreshDate = new Date();
+		Date orderDate = new Date();
+		
+		// Ajoute quelques plats à servir au début de la partie
+		for (int i = 0; i < Math.random() * 3 + 1; i++)	
+			addNewOrder();
+		
+		double randomTime = Math.random() * 10 + 5;
+		
 		while (!isFinished()) {
 			
 			ActionInput it = new ActionInput();
 			it.start();
-			
-			Date date;
-			Date refreshDate = new Date();
-			Date orderDate = new Date();
-			
-			// Ajoute quelques plats à servir au début de la partie
-			for (int i = 0; i < Math.random() * 5 + 3; i++)	
-				addNewOrder();
-			
-			double randomTime = Math.random() * 7 + 5;
 			
 			printHUD();
 			
