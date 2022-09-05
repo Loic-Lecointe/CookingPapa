@@ -160,7 +160,7 @@ public class Main {
 	
 	
 	public static void jeu(boolean infini, int niveau) {
-		List<Recipe> receipeList = LoadRecipes.loadColdReceipes(niveau);
+		receipeList = LoadRecipes.loadColdReceipes(niveau);
 		receipeList.addAll(LoadRecipes.loadHotReceipes(niveau));
 		LocalDateTime debutDuJeu = LocalDateTime.now();
 		

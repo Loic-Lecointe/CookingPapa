@@ -48,6 +48,7 @@ class CookInputTest {
 		assertFalse(CookInput.isCorrect(pizza, null));
 		assertFalse(CookInput.isCorrect(null, ""));
 		assertFalse(CookInput.isCorrect(null, null));
+		assertTrue(CookInput.isCorrect(pizza, "pizza"));
 	}
 
 }
