@@ -23,6 +23,8 @@ public class Main {
 	private static int plats_echoue;
 	private static boolean isInfinite = false;
 	
+	private static Boolean lastOrder;
+	
 	public static void main(String[] args) {
 		Menu.start();
 		sc.close();
@@ -53,6 +55,19 @@ public class Main {
 	
 	public static void printFoodTruck() {
 		List<String> truck = PrintTools.pathToString("/donnees/foodtruck");
+		
+		if (lastOrder != null) {
+			List<String> client;
+			if (lastOrder) {
+				client = PrintTools.pathToString("/donnees/happy_customer");
+			} else {
+				client = PrintTools.pathToString("/donnees/angry_customer");
+			}
+			for (int j = 0; j < client.size(); j++) {
+				truck.add(j, client.get(j) + truck.get(j));
+				truck.remove(j+1);
+			}
+		}
 		
 		for (int i = 0; i < orders.getNbOrders(); i++) {
 			List<String> client = PrintTools.pathToString("/donnees/customer");
@@ -85,10 +100,11 @@ public class Main {
 			String finish = "";
 			if(CookInput.isCorrect(order)) {
 				plats_reussi++;
-				finish = "Bravo vous avez reussi";
 				if (order.isHot()) {
 					((HotMealOrder) order).startCook();
 					furnaces.add((HotMealOrder) order);
+				} else {
+					lastOrder = true;
 				}
 				//if(order.startCook()) {
 					//furnaces.add(order.getHotMealOrder());
@@ -96,7 +112,8 @@ public class Main {
 			}else {
 				nbLife--;
 				plats_echoue++;
-				finish = "Tu es nul";
+				lastOrder = false;
+				orders.remove(index);
 			}
 			System.out.println(finish);
 		}
@@ -104,6 +121,9 @@ public class Main {
 		if (!order.isHot() || ((HotMealOrder) order).isCooked()) {
 			furnaces.remove(order);
 			orders.remove(index);
+			if (order.isHot()) {
+				lastOrder = true;
+			}
 		}
 	}
 	
