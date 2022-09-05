@@ -135,7 +135,7 @@ public class Main {
 			System.out.println("Score enregistre. Merci d'avoir joue !");
 		}
 		System.out.println("Appuyez sur entree pour revenir a l'ecran principal");
-		sc.next();
+		sc.nextLine();
 		totalOrders = 0;
 		Menu.start();
 		
