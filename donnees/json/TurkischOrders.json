@@ -1,0 +1,5 @@
+{
+    "name":"Kebab",
+    "mandatoryIngredients":["PAIN","VIANDE_A_KEBAB"],
+    "optionalIngredients":["SALADE","TOMATE","OIGNON"]
+}

@@ -1,0 +1,5 @@
+{
+    "name":"Pizza",
+    "mandatoryIngredients":["PATE_A_PIZZA","SAUCE_TOMATE"],
+    "optionalIngredients":["JAMBON","CHAMPIGNON","CHORIZO","FROMAGE","ANANAS","MOZARELLA","SAUCISSE_DE_TOULOUSE"]
+}
