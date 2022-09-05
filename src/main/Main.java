@@ -122,7 +122,7 @@ public class Main {
 		Order order = orders.get(index);
 		
 		PrintTools.clearScreen();
-		
+
 		System.out.println("Plat: " + order.getName());
 		System.out.println("Ingrédients: " + order.getIngredients() + "\n");
 		
@@ -144,7 +144,7 @@ public class Main {
 			finish = "Tu es nul";
 		}
 		
-		if (order.isHot()) {
+		if (!order.isHot()) {
 			orders.remove(index);
 		}
 		System.out.println(finish);

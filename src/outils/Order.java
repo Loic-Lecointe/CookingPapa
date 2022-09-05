@@ -24,7 +24,9 @@ public class Order {
 		int nb = rdm.nextInt(difficulte);
 		this.ingredients.addAll(receipe.getMandatoryIngredients());
 		for(int i = 0; i<nb; i++) {
-			this.ingredients.add(receipe.getOptionalIngredients().get(rdm.nextInt(receipe.getOptionalIngredients().size())));
+			if (receipe.getOptionalIngredients().size() != 0) {
+				this.ingredients.add(receipe.getOptionalIngredients().get(rdm.nextInt(receipe.getOptionalIngredients().size())));
+			}
 		}
 	}
 	
@@ -47,7 +49,7 @@ public class Order {
 
 	@Override
 	public String toString() {
-		return "Plat [name=" + getName() + ", ingredients=" + ingredients + ", points=" + getPoints() + "]";
+		return getName() + " " + getTimeBeforeLeaving() + "s";
 	}
 	
 	public String getIngredientsShortcut() {

@@ -42,7 +42,7 @@ public class HotOrder extends Order {
 	}
 	
 	public boolean isCooking() {
-		return time_start_cook != null;
+		return time_start_cook != null && !isCooked();
 	}
 	
 	public boolean isCooked() {
@@ -50,6 +50,18 @@ public class HotOrder extends Order {
 			return false;
 		}
 		Date now = new Date();
-		return now.getTime() - time_start_cook.getTime() >= TIME_TO_COOK;
+		return (now.getTime() - time_start_cook.getTime()) / 1000 >= TIME_TO_COOK;
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder res = new StringBuilder();
+		res.append(super.toString());
+		if (isCooked()) {
+			res.append(" Pret!");
+		} else if (isCooking()) {
+			res.append(" En cours...");
+		}
+		return res.toString();
 	}
 }
