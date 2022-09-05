@@ -83,7 +83,7 @@ public class Main {
 	}
 	
 	public static boolean isFinished() {
-		return totalOrders == NB_ORDERS_GAME && orders.getNbOrders() == 0;
+		return (totalOrders == NB_ORDERS_GAME && orders.getNbOrders() == 0) || nbLife==0;
 	}
 	
 	
@@ -94,7 +94,7 @@ public class Main {
 		if(infini) {
 			playGame();
 		} else {
-			while(nbLife!=0) {
+			while(nbLife>0) {
 				playGame();
 			}
 		}
