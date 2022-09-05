@@ -166,7 +166,7 @@ public class Main {
 				date = new Date();
 				
 				if (date.getTime() - orderDate.getTime() > randomTime * 1000) {
-					randomTime = Math.random() * 5 + 3;
+					randomTime = Math.random() * 10 + 5;
 					orderDate = date;
 					addNewOrder();
 				}

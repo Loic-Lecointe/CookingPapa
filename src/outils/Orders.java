@@ -40,8 +40,6 @@ public class Orders {
 				furnaces.remove(orders[i]);
 				remove(i);
 				nbSuppr++;
-			} else {
-				i++;
 			}
 		}
 		return nbSuppr;
