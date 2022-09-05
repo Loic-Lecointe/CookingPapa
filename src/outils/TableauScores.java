@@ -14,7 +14,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class TableauScores {
 
-	public static void saveScores(ArrayList<Joueur> scores) {
+	public static void saveScores(ArrayList<Player> scores) {
 		String path = System.getProperty("user.dir")+"/donnees/";
 		ObjectMapper om = new ObjectMapper();
 		Collections.sort(scores);
@@ -37,13 +37,13 @@ public class TableauScores {
 	}
 
 
-	public static ArrayList<Joueur> loadScores(){
+	public static ArrayList<Player> loadScores(){
 		String path = System.getProperty("user.dir")+"/donnees/";
 		ObjectMapper om = new ObjectMapper();
-		ArrayList<Joueur> scores = new ArrayList<>();
+		ArrayList<Player> scores = new ArrayList<>();
 
 		try {
-			scores.addAll(om.readValue(new File(path+"/json/tabScores.json"), new TypeReference<List<Joueur>>() {}));
+			scores.addAll(om.readValue(new File(path+"/json/tabScores.json"), new TypeReference<List<Player>>() {}));
 		} catch (StreamReadException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -68,7 +68,7 @@ public class TableauScores {
 
 	public static void printScores() {
 
-		ArrayList<Joueur> liste = loadScores();
+		ArrayList<Player> liste = loadScores();
 		int cpt = 0;
 		while(cpt < 10 && cpt <liste.size() && !liste.isEmpty()){
 			System.out.println("Joueur "+(cpt+1)+" : "+liste.get(cpt).getName()+"\t"+liste.get(cpt).getScore()+" points");
