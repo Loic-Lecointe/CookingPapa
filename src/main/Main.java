@@ -76,11 +76,12 @@ public class Main {
 			PrintTools.clearScreen();
 		
 		if (!order.isHot() || !((HotOrder) order).isCooking() && !((HotOrder) order).isCooked()) {
-			System.out.println("Plat: " + order.getName());
-			System.out.println("Ingrédients: " + order.getIngredients() + "\n");
+			System.out.println("◀◀ Plat: " + order.getName() + " ▶▶");
 			
-			System.out.println("Liste des inputs:");
+			System.out.println("\nListe des inputs:");
 			System.out.println(order.getIngredientsShortcut());
+			
+			System.out.println(order.toStringIngredients());
 			
 			completedOrders++;
 			String finish = "";
@@ -106,7 +107,7 @@ public class Main {
 		} catch(NullPointerException npe) {
 			System.out.println("Cette commande n'est pas disponible");
 		} catch(ArrayIndexOutOfBoundsException aiooe) {
-			System.out.println("Le chiffre donn� est trop grand");
+			System.out.println("Le chiffre donn� est trop grand");
 		}
 	}
 	
@@ -185,7 +186,7 @@ public class Main {
 			if (it.getInput() != null) {
 				try {
 					takeOrder(Integer.valueOf(it.getInput()) - 1);
-				} catch (NumberFormatException e) {}
+				} catch (NumberFormatException | NullPointerException e) {}
 				printHUD();
 			}
 		}
