@@ -8,13 +8,24 @@ public enum Ingredient {
 	PAIN("pain",'n'),
 	STEAK("steak",'k'),
 	
+	TORTILLA("tortilla",'l'),
+	BOEUF("boeuf",'b'),
+	
+	VIANDE_A_KEBAB("viande a kebab",'k'),
+	
 	JAMBON("jambon",'j'),
 	CHAMPIGNON("champignon",'g'),
 	CHORIZO("chorizo",'z'),
 	FROMAGE("fromage",'f'),
 	ANANAS("ananas",'a'),
 	MOZARELLA("mozarella",'m'),
-	SAUCISSE_DE_TOULOUSE("saucisse de Toulouse",'t');
+	SAUCISSE_DE_TOULOUSE("saucisse de Toulouse",'d'),
+	SALADE("salade",'s'),
+	TOMATE("tomate",'t'),
+	EPICE("epice",'e'),
+	PIMENT("piment",'i'),
+	OIGNON("oignon",'o'),
+	RIZ("riz",'r');
 	
 	
 	private final String name;
