@@ -152,7 +152,7 @@ public class Main {
 			Date orderDate = new Date();
 			
 			// Ajoute quelques plats à servir au début de la partie
-			for (int i = 0; i < Math.random() * 3 + 1; i++)	
+			for (int i = 0; i < Math.random() * 5 + 3; i++)	
 				addNewOrder();
 			
 			double randomTime = Math.random() * 7 + 5;
@@ -163,7 +163,7 @@ public class Main {
 				date = new Date();
 				
 				if (date.getTime() - orderDate.getTime() > randomTime * 1000) {
-					randomTime = Math.random() * 3 + 2;
+					randomTime = Math.random() * 5 + 3;
 					orderDate = date;
 					addNewOrder();
 				}
@@ -177,7 +177,7 @@ public class Main {
 			if (it.getInput() != null) {
 				try {
 					int choice = Integer.valueOf(it.getInput());
-					if (choice > 0 && choice < Orders.MAX_ORDERS && orders.get(choice - 1) != null) {
+					if (choice > 0 && choice <= Orders.MAX_ORDERS && orders.get(choice - 1) != null) {
 						takeOrder(choice - 1);
 					}
 				} catch (NumberFormatException e) {}
