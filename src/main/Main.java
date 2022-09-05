@@ -34,7 +34,7 @@ public class Main {
 		Random rdm = new Random();
 		Order order = receipeList.get(rdm.nextInt(receipeList.size())).createOrder();
 		
-		if (totalOrders < NB_ORDERS_GAME && orders.add(order)) {
+		if ((totalOrders < NB_ORDERS_GAME || isInfinite)&& orders.add(order)) {
 			totalOrders++;
 		}
 	}
@@ -47,7 +47,9 @@ public class Main {
 		System.out.println("Commandes:");
 		System.out.println(orders);
 		printFoodTruck();
-		System.out.println("NbLife :" + nbLife);
+		if(isInfinite) {
+			System.out.println("NbLife :" + nbLife);
+		}
 	}
 	
 	public static void printFoodTruck() {
@@ -70,7 +72,9 @@ public class Main {
 		Order order = orders.get(index);
 		
 		PrintTools.clearScreen();
+		try {
 			
+		
 		if (!order.isHot() || !((HotOrder) order).isCooking() && !((HotOrder) order).isCooked()) {
 			System.out.println("Plat: " + order.getName());
 			System.out.println("Ingrédients: " + order.getIngredients() + "\n");
@@ -97,6 +101,9 @@ public class Main {
 				
 		if (!order.isHot() || ((HotOrder) order).isCooked()) {
 			orders.remove(index);
+		}
+		} catch(NullPointerException npe) {
+			System.out.println("Cette commande n'est pas disponible");
 		}
 	}
 	
