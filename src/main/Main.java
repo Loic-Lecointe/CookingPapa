@@ -10,8 +10,9 @@ import java.util.Scanner;
 import outils.*;
 
 public class Main {
-	static List<Receipe> receipeList = LoadReceipes.loadColdReceipes();
-	static List<Receipe> hotReceipeList = LoadReceipes.loadHotReceipes();
+	static List<Recipe> receipeList = new ArrayList<>();
+	static List<Recipe> hotReceipeList = new ArrayList<>();
+	
 	static Orders orders = new Orders();
 	static Furnaces furnaces = new Furnaces();
 	static int totalOrders = 0;
@@ -75,8 +76,8 @@ public class Main {
 		System.out.println("Votre score est de : " + score.calcul_score_final(false)+".\nEntrez un nom ou un pseudo pour être enregistré sur le leaderboard :");
 		Scanner sc = new Scanner(System.in);
 		String input = sc.nextLine();
-		ArrayList<Joueur> leaderboard = TableauScores.loadScores();
-		leaderboard.add(new Joueur(input,score.calcul_score_final(false)));
+		ArrayList<Player> leaderboard = TableauScores.loadScores();
+		leaderboard.add(new Player(input,score.calcul_score_final(false)));
 		TableauScores.saveScores(leaderboard);
 		System.out.println("Score enregistré. Merci d'avoir joué !");
 		sc.close();
@@ -158,14 +159,16 @@ public class Main {
 	
 	
 	
-	public static void jeu(boolean infini) {
+	public static void jeu(boolean infini, int niveau) {
+		List<Recipe> receipeList = LoadRecipes.loadColdReceipes(niveau);
+		receipeList.addAll(LoadRecipes.loadHotReceipes(niveau));
 		LocalDateTime debutDuJeu = LocalDateTime.now();
 		
 		if(!infini) {
-			playGame();
+			playGame(niveau);
 		} else {
 			while(nbLife>0) {
-				playGame();
+				playGame(0);
 			}
 		}
 		
@@ -177,8 +180,8 @@ public class Main {
 			System.out.println("Entrez un nom ou un pseudo pour etre enregistre sur le leaderboard :");
 			Scanner sc = new Scanner(System.in);
 			String input = sc.nextLine();
-			ArrayList<Joueur> leaderboard = TableauScores.loadScores();
-			leaderboard.add(new Joueur(input,score.calcul_score_final(false)));
+			ArrayList<Player> leaderboard = TableauScores.loadScores();
+			leaderboard.add(new Player(input,score.calcul_score_final(false)));
 			TableauScores.saveScores(leaderboard);
 			System.out.println("Score enregistre. Merci d'avoir joue !");
 			sc.close();
@@ -186,7 +189,7 @@ public class Main {
 		
 	}
 	
-	public static void playGame() {
+	public static void playGame(int niveau) {
 		while (!isFinished()) {
 			
 			ActionInput it = new ActionInput();

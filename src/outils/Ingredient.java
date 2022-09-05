@@ -18,6 +18,7 @@ public enum Ingredient {
 	FROMAGE("fromage",'f'),
 	ANANAS("ananas",'a'),
 	MOZARELLA("mozarella",'m'),
+	CAROTTE("carotte",'c'),
 	SAUCISSE_DE_TOULOUSE("saucisse de Toulouse",'d'),
 	SALADE("salade",'w'),
 	TOMATE("tomate",'w'),

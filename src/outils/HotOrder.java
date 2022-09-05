@@ -6,7 +6,7 @@ public class HotOrder extends Order {
 	private static final int TIME_TO_COOK = 10;
 	private Date time_start_cook;
 	
-	public HotOrder(Receipe receipe) {
+	public HotOrder(Recipe receipe) {
 		super(receipe);
 	}
 	

@@ -1,15 +1,15 @@
 package outils;
 
-public class Joueur implements Comparable<Joueur>{
+public class Player implements Comparable<Player>{
 	private String name;
 	private int score;
 	
-	public Joueur(String name, int score) {
+	public Player(String name, int score) {
 		this.name = name;
 		this.score = score;
 	}
 
-	public Joueur() {
+	public Player() {
 		this(null,0);
 	}
 
@@ -30,7 +30,7 @@ public class Joueur implements Comparable<Joueur>{
 	}
 	
 	@Override
-	public int compareTo(Joueur j) {
+	public int compareTo(Player j) {
 		return (j.score-this.score);
 	}
 	
