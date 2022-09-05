@@ -16,7 +16,7 @@ public class Main {
 	static Orders orders = new Orders();
 	static Furnaces furnaces = new Furnaces();
 	static int totalOrders = 0;
-	public static final int NB_ORDERS_GAME = 5;
+	public static final int NB_ORDERS_GAME = 15;
 	public static int completedOrders = 0;
 	private static int nbLife = 3;
 	private static int plats_reussi;
