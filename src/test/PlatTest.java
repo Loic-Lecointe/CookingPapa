@@ -24,7 +24,6 @@ public class PlatTest {
 	@Test
 	void testGetter() {
 		assertEquals("p",plat.getName());
-		assertEquals(1,plat.getPoints());
 		assertTrue(plat.getIngredients().size() == 0);
 	}
 }
