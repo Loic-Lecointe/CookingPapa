@@ -18,7 +18,7 @@ public class LoadReceipes {
 		ArrayList<Receipe> receipes = new ArrayList<>();
 
 		try {
-			receipes.addAll(om.readValue(new File(path+"/json/ListePlats.json"), new TypeReference<List<Receipe>>() {}));
+			receipes.addAll(om.readValue(new File(path+"/json/AmericanOrders.json"), new TypeReference<List<Receipe>>() {}));
 			for (int i = 0; i < receipes.size(); i++) {
 				// TODO: Pas très beau ça serait bien de l'améliorer
 				if (isHot) {
