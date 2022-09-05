@@ -3,12 +3,12 @@
         "name":"Hamburger",
         "mandatoryIngredients":["PAIN","STEAK"],
         "optionalIngredients":["FROMAGE","SAUCISSE_DE_TOULOUSE","SALADE","TOMATE","OIGNON","CORNICHON"],
-        "ishot":"true"
+        "isHot":"true"
     },
     {
         "name":"Burrito",
         "mandatoryIngredients":["TORTILLA","BOEUF"],
         "optionalIngredients":["TOMATE","EPICE","PIMENT","OIGNON","SALADE","RIZ"],
-        "ishot":"true"
+        "isHot":"true"
     }
 ]

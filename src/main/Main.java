@@ -10,7 +10,7 @@ import java.util.Scanner;
 import outils.*;
 
 public class Main {
-	static List<Receipe> coldReceipeList = LoadReceipes.loadColdReceipes();
+	static List<Receipe> receipeList = LoadReceipes.loadColdReceipes();
 	static List<Receipe> hotReceipeList = LoadReceipes.loadHotReceipes();
 	static Orders orders = new Orders();
 	static Furnaces furnaces = new Furnaces();
@@ -22,6 +22,7 @@ public class Main {
 	private static int plats_echoue;
 	
 	public static void main(String[] args) {
+		receipeList.addAll(hotReceipeList);
 		Menu.start();
 		
 		LocalDateTime debutDuJeu = LocalDateTime.now();
@@ -85,7 +86,7 @@ public class Main {
 	private static void addNewOrder() {
 		
 		Random rdm = new Random();
-		Order order = coldReceipeList.get(rdm.nextInt(coldReceipeList.size())).createOrder();
+		Order order = receipeList.get(rdm.nextInt(receipeList.size())).createOrder();
 		
 		if (totalOrders < NB_ORDERS_GAME && orders.add(order)) {
 			totalOrders++;
