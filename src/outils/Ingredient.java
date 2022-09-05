@@ -25,8 +25,9 @@ public enum Ingredient {
 	EPICE("epice",'e'),
 	PIMENT("piment",'i'),
 	OIGNON("oignon",'o'),
-	RIZ("riz",'r');
-	
+	RIZ("riz",'r'),
+	CORNICHON("cornichon",'c'),
+	FRITE("frite",'f');
 	
 	private final String name;
 	private final char shortcut;
