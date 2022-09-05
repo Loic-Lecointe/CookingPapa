@@ -1,0 +1,5 @@
+{
+    "name":"Hamburger",
+    "mandatoryIngredients":["PAIN","STEAK"],
+    "optionalIngredients":["FROMAGE","SAUCISSE_DE_TOULOUSE","SALADE","TOMATE","OIGNON","CORNICHON"]
+}

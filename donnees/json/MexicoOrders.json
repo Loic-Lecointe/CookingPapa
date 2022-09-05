@@ -1,0 +1,5 @@
+{
+    "name":"Burrito",
+    "mandatoryIngredients":["TORTILLA","BOEUF"],
+    "optionalIngredients":["TOMATE","EPICE","PIMENT","OIGNON","SALADE","RIZ"]
+}
