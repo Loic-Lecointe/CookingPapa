@@ -138,6 +138,7 @@ public class Main {
 		System.out.println("Appuyez sur entr�e pour revenir au menu principal");
 		Scanner sc = new Scanner(System.in);
 		sc.nextLine();
+		totalOrders = 0;
 		Menu.start();
 		
 	}

@@ -21,7 +21,7 @@ public enum Ingredient {
 	CAROTTE("carotte",'c'),
 	SAUCISSE_DE_TOULOUSE("saucisse de toulouse",'d'),
 	SALADE("salade",'w'),
-	TOMATE("tomate",'w'),
+	TOMATE("tomate",'x'),
 	EPICE("epice",'e'),
 	PIMENT("piment",'p'),
 	AVOCAT("avocat",'v'),
