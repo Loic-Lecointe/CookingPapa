@@ -31,7 +31,7 @@ public class Main {
 	private static void addNewOrder() {
 		
 		Random rdm = new Random();
-		Order order = receipeList.get(rdm.nextInt(receipeList.size())).createOrder();
+		MealOrder order = receipeList.get(rdm.nextInt(receipeList.size())).createOrder();
 		
 		if ((totalOrders < NB_ORDERS_GAME || isInfinite)&& orders.add(order)) {
 			totalOrders++;
@@ -69,11 +69,11 @@ public class Main {
 	
 	public static void takeOrder(int index) {
 		
-		Order order = orders.get(index);
+		MealOrder order = orders.get(index);
 		
 		PrintTools.clearScreen();
 		
-		if (!order.isHot() || !((HotOrder) order).isCooking() && !((HotOrder) order).isCooked()) {
+		if (!order.isHot() || !((HotMealOrder) order).isCooking() && !((HotMealOrder) order).isCooked()) {
 			System.out.println("◀◀ Plat: " + order.getName() + " ▶▶");
 			
 			System.out.println("\nListe des inputs:");
@@ -87,9 +87,12 @@ public class Main {
 				plats_reussi++;
 				finish = "Bravo vous avez reussi";
 				if (order.isHot()) {
-					((HotOrder) order).startCook();
-					furnaces.add((HotOrder) order);
+					((HotMealOrder) order).startCook();
+					furnaces.add((HotMealOrder) order);
 				}
+				//if(order.startCook()) {
+					//furnaces.add(order.getHotMealOrder());
+				//}
 			}else {
 				nbLife--;
 				plats_echoue++;
@@ -98,14 +101,14 @@ public class Main {
 			System.out.println(finish);
 		}
 				
-		if (!order.isHot() || ((HotOrder) order).isCooked()) {
+		if (!order.isHot() || ((HotMealOrder) order).isCooked()) {
 			furnaces.remove(order);
 			orders.remove(index);
 		}
 	}
 	
 	public static boolean isFinished() {
-		return !isInfinite?(totalOrders == NB_ORDERS_GAME && orders.getNbOrders() == 0):nbLife==0;
+		return !isInfinite?(totalOrders == NB_ORDERS_GAME && orders.getNbOrders() == 0):nbLife<=0;
 	}
 	
 	
@@ -184,6 +187,6 @@ public class Main {
 				printHUD();
 			}
 		}
-	}
+	} 
 	
 }

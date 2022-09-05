@@ -2,13 +2,13 @@ package outils;
 
 public class Furnaces {
 	private final static int MAX_FURNACES = 5;
-	private HotOrder[] food = new HotOrder[MAX_FURNACES];
+	private HotMealOrder[] food = new HotMealOrder[MAX_FURNACES];
 	
-	public Order get(int index) {
+	public MealOrder get(int index) {
 		return food[index];
 	}
 	
-	public boolean add(HotOrder order) {
+	public boolean add(HotMealOrder order) {
 		int i = 0; 
 		while (i < food.length && food[i] != null) i++;
 		
@@ -19,7 +19,7 @@ public class Furnaces {
 		return false;
 	}
 	
-	public void remove(Order order) {
+	public void remove(MealOrder order) {
 		int i = 0;
 		while (i < food.length && food[i] != order) i++;
 		if (i < food.length) {

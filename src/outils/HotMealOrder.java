@@ -2,11 +2,11 @@ package outils;
 
 import java.util.Date;
 
-public class HotOrder extends Order {
+public class HotMealOrder extends MealOrder {
 	private static final int TIME_TO_COOK = 10;
 	private Date time_start_cook;
 	
-	public HotOrder(Recipe receipe) {
+	public HotMealOrder(Recipe receipe) {
 		super(receipe);
 	}
 	

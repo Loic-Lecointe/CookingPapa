@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
-public class Order {
+public class MealOrder {
 	private final static int TIME_BEFORE_LEAVING = 30;
 	protected final Date time_start = new Date();
 	
@@ -13,7 +13,7 @@ public class Order {
 	
 	private List<Ingredient> ingredients;
 	
-	public Order(Recipe receipe) {
+	public MealOrder(Recipe receipe) {
 		this.receipe= receipe; 
 		this.ingredients = new ArrayList<>();
 		generateIngredients(5);

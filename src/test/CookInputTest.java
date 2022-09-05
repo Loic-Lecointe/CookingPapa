@@ -10,12 +10,12 @@ import org.junit.jupiter.api.Test;
 
 import outils.CookInput;
 import outils.Ingredient;
-import outils.Order;
+import outils.MealOrder;
 import outils.Recipe;
 
 class CookInputTest {
 	
-	static Order pizza;
+	static MealOrder pizza;
 	static ArrayList<Ingredient> ingredients = new ArrayList<>();
 
 	@BeforeAll
@@ -27,12 +27,12 @@ class CookInputTest {
 		
 		Recipe pizzaReceipe = new Recipe("Pizza", ingredients, false);
 		
-		pizza = new Order(pizzaReceipe);
+		pizza = new MealOrder(pizzaReceipe);
 		pizza.setIngredients(ingredients);
 	}
 	
 	@Test
-	void test() {
+	void testInputIsCorrect() {
 		StringBuilder res = new StringBuilder();
 		for (int i = 0; i < ingredients.size(); i++) {
 			res.append(ingredients.get(i).getShortcut());

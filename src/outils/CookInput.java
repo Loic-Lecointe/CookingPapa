@@ -5,12 +5,12 @@ import java.util.Scanner;
 public class CookInput {
 	private static Scanner keyboard = new Scanner(System.in);
 	
-	public static boolean isCorrect(Order plat) {
+	public static boolean isCorrect(MealOrder plat) {
 		String input = keyboard.nextLine();
 		return isCorrect(plat, input);
 	}
 	
-	public static boolean isCorrect(Order plat, String input) {
+	public static boolean isCorrect(MealOrder plat, String input) {
 		if (plat == null) {
 			return false;
 		}
