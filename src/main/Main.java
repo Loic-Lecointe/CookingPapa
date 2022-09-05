@@ -10,7 +10,7 @@ import java.util.Scanner;
 import outils.*;
 
 public class Main {
-	static List<Plat> listePlat = LoadPlat.loadListePlat();
+	static List<Receipe> receipeList = LoadReceipes.loadListePlat();
 	static Orders orders = new Orders();
 	static int totalOrders = 0;
 	public static final int NB_ORDERS_GAME = 5;
@@ -80,7 +80,7 @@ public class Main {
 	private static void addNewPlat() {
 		
 		Random rdm = new Random();
-		Plat plat = new Plat(listePlat.get(rdm.nextInt(2)));
+		Order plat = new Order(receipeList.get(rdm.nextInt(receipeList.size())));
 		
 		if (totalOrders < NB_ORDERS_GAME && orders.add(plat)) {
 			totalOrders++;
@@ -89,21 +89,39 @@ public class Main {
 
 	public static void printHUD() {
 		orders.removeDelayedOrders();
-		clearScreen();
+		PrintTools.clearScreen();
 		System.out.println("Commandes:");
 		System.out.println(orders);
+		printFoodTruck();
+	}
+	
+	public static void printFoodTruck() {
+		List<String> truck = PrintTools.pathToString("/donnees/foodtruck");
+		
+		for (int i = 0; i < orders.getNbOrders(); i++) {
+			List<String> client = PrintTools.pathToString("/donnees/customer");
+			for (int j = 0; j < client.size(); j++) {
+				truck.add(j, truck.get(j) + client.get(j));
+				truck.remove(j+1);
+			}
+		}
+		
+		for (String ligne: truck) {
+			System.out.println(ligne);
+		}
 	}
 	
 	public static void takeOrder(int index) {
-		Plat order = orders.get(index);
+		Order order = orders.get(index);
 		
-		clearScreen();
+		PrintTools.clearScreen();
 		
 		System.out.println("Plat: " + order.getName());
 		System.out.println("Ingrédients: " + order.getIngredients() + "\n");
 		
 		System.out.println("Liste des inputs:");
 		System.out.println(order.getIngredientsShortcut());
+		
 		completedOrders++;
 		String finish = "";
 		if(CookInput.isCorrect(order)) {
@@ -111,16 +129,10 @@ public class Main {
 			finish = "Bravo vous avez reussi";
 		}else {
 			plats_echoue++;
-			finish = "Tu es null";
+			finish = "Tu es nul";
 		}
 		orders.remove(index);
 		System.out.println(finish);
-	}
-	
-	public static void clearScreen() {
-		for (int i = 0; i < 40; i++) {
-			System.out.println();
-		}
 	}
 	
 	public static boolean isFinished() {

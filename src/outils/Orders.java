@@ -1,11 +1,11 @@
 package outils;
 
 public class Orders {
-	private final static int MAX_ORDERS = 5;
-	private Plat[] orders = new Plat[MAX_ORDERS];
+	private final static int MAX_ORDERS = 7;
+	private Order[] orders = new Order[MAX_ORDERS];
 	private int nbOrders = 0;
 	
-	public Plat get(int index) {
+	public Order get(int index) {
 		return orders[index];
 	}
 	
@@ -13,26 +13,28 @@ public class Orders {
 		return nbOrders;
 	}
 	
-	public boolean add(Plat order) {
-		if (MAX_ORDERS == nbOrders) {
-			return false;
+	public boolean add(Order order) {
+		int i = 0; 
+		while (i < orders.length && orders[i] != null) i++;
+		
+		if (i < orders.length) {
+			orders[i] = order;
+			nbOrders++;
+			return true;
 		}
-		orders[nbOrders++] = order;
-		return true;
+		return false;
 	}
 	
 	public void remove(int index) {
-		for (int i = index; i < MAX_ORDERS - 1; i++) {
-			orders[i] =  orders[i + 1];
+		if (orders[index] != null) {
+			orders[index] = null;
+			nbOrders--;
 		}
-		orders[orders.length - 1] = null;
-		nbOrders--;
 	}
 	
 	public void removeDelayedOrders() {
-		int i = 0;
-		while (i < nbOrders) {
-			if (orders[i].isDelayed()) {
+		for (int i = 0; i < orders.length; i++) {
+			if (orders[i] != null && orders[i].isDelayed()) {
 				remove(i);
 			} else {
 				i++;

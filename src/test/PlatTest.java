@@ -9,15 +9,16 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class PlatTest {
-	Plat plat;
-	
-	
+	Order plat;
+
 	@BeforeEach
 	void Initialization() {
 		ArrayList<Ingredient> ingredients = new ArrayList<>();
 		ingredients.toArray(Ingredient.values());
-		plat = new Plat("p",1,ingredients);
 		
+		Receipe platReceipe = new Receipe("p", ingredients);
+		
+		plat = new Order(platReceipe);
 	}
 	
 	@Test
@@ -25,7 +26,5 @@ public class PlatTest {
 		assertEquals("p",plat.getName());
 		assertEquals(1,plat.getPoints());
 		assertTrue(plat.getIngredients().size() == 0);
-		
-		
 	}
 }

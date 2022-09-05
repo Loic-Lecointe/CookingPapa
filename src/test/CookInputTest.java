@@ -1,6 +1,7 @@
 package test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 
@@ -9,11 +10,12 @@ import org.junit.jupiter.api.Test;
 
 import outils.CookInput;
 import outils.Ingredient;
-import outils.Plat;
+import outils.Order;
+import outils.Receipe;
 
 class CookInputTest {
 	
-	static Plat pizza;
+	static Order pizza;
 	static ArrayList<Ingredient> ingredients = new ArrayList<>();
 
 	@BeforeAll
@@ -22,7 +24,10 @@ class CookInputTest {
 		ingredients.add(Ingredient.PATE_A_PIZZA);
 		ingredients.add(Ingredient.SAUCE_TOMATE);
 		ingredients.add(Ingredient.JAMBON);
-		pizza = new Plat("Pizza", 0, ingredients);
+		
+		Receipe pizzaReceipe = new Receipe("Pizza", ingredients);
+		
+		pizza = new Order(pizzaReceipe);
 		pizza.setIngredients(ingredients);
 	}
 	
