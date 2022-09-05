@@ -57,15 +57,10 @@ public class MealOrder {
 			res.append(ingredient + "\n");
 		}
 		
-<<<<<<< HEAD
-		if (receipe.getOptionalIngredients().size() != 0) {
-			res.append("\n┉┉┉ Ingredients supplementaires ┉┉┉\n");
-=======
 		if (recipe.getOptionalIngredients().size() != 0) {
-			res.append("\n┉┉┉ Ingrédients supplémentaires ┉┉┉\n");
->>>>>>> branch 'main' of https://gitlab.univ-lille.fr/2022-projet-agile-de-rentree/groupe-15.git
+			res.append("\n┉┉┉ Ingredients supplementaires ┉┉┉\n");
+
 		}
-		
 		for(Ingredient ingredient : recipe.getOptionalIngredients()) {
 			res.append(ingredient + "\n");
 		}
