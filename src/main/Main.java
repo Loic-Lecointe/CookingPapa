@@ -134,7 +134,8 @@ public class Main {
 			TableauScores.saveScores(leaderboard);
 			System.out.println("Score enregistre. Merci d'avoir joue !");
 		}
-		
+		System.out.println("Appuyez sur entree pour revenir a l'ecran principal");
+		sc.next();
 		totalOrders = 0;
 		Menu.start();
 		
