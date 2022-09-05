@@ -122,32 +122,34 @@ public class Main {
 		Order order = orders.get(index);
 		
 		PrintTools.clearScreen();
-
-		System.out.println("Plat: " + order.getName());
-		System.out.println("Ingrédients: " + order.getIngredients() + "\n");
-		
-		System.out.println("Liste des inputs:");
-		System.out.println(order.getIngredientsShortcut());
-		
-		completedOrders++;
-		String finish = "";
-		if(CookInput.isCorrect(order)) {
-			plats_reussi++;
-			finish = "Bravo vous avez reussi";
-			if (order.isHot()) {
-				((HotOrder) order).startCook();
-				furnaces.add((HotOrder) order);
+			
+		if (!order.isHot() || !((HotOrder) order).isCooking() && !((HotOrder) order).isCooked()) {
+			System.out.println("Plat: " + order.getName());
+			System.out.println("Ingrédients: " + order.getIngredients() + "\n");
+			
+			System.out.println("Liste des inputs:");
+			System.out.println(order.getIngredientsShortcut());
+			
+			completedOrders++;
+			String finish = "";
+			if(CookInput.isCorrect(order)) {
+				plats_reussi++;
+				finish = "Bravo vous avez reussi";
+				if (order.isHot()) {
+					((HotOrder) order).startCook();
+					furnaces.add((HotOrder) order);
+				}
+			}else {
+				nbLife--;
+				plats_echoue++;
+				finish = "Tu es nul";
 			}
-		}else {
-			nbLife--;
-			plats_echoue++;
-			finish = "Tu es nul";
+			System.out.println(finish);
 		}
-		
-		if (!order.isHot()) {
+				
+		if (!order.isHot() || ((HotOrder) order).isCooked()) {
 			orders.remove(index);
 		}
-		System.out.println(finish);
 	}
 	
 	public static boolean isFinished() {
