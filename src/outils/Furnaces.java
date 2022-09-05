@@ -1,7 +1,5 @@
 package outils;
 
-import java.util.Date;
-
 public class Furnaces {
 	private final static int MAX_FURNACES = 5;
 	private HotOrder[] food = new HotOrder[MAX_FURNACES];
