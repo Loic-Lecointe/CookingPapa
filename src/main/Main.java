@@ -94,7 +94,7 @@ public class Main {
 	}
 
 	public static void printHUD() {
-		nbLife -= orders.removeDelayedOrders();
+		nbLife -= orders.removeDelayedOrders(furnaces);
 		PrintTools.clearScreen();
 		System.out.println("Fours:");
 		System.out.println(furnaces);
@@ -160,7 +160,7 @@ public class Main {
 	
 	
 	public static void jeu(boolean infini, int niveau) {
-		List<Recipe> receipeList = LoadRecipes.loadColdReceipes(niveau);
+		receipeList = LoadRecipes.loadColdReceipes(niveau);
 		receipeList.addAll(LoadRecipes.loadHotReceipes(niveau));
 		LocalDateTime debutDuJeu = LocalDateTime.now();
 		
