@@ -24,6 +24,7 @@ public class TableauScoresTest {
 	
 	@Test
 	void test() {
+		TableauScores.deleteScores();
 		TableauScores.saveScores(joueurs);
 		ArrayList<Joueur> joueursSerialised = TableauScores.loadScores();
 		assertEquals(joueurs.get(0).getName(),joueursSerialised.get(0).getName());

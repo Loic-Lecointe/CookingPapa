@@ -76,6 +76,26 @@ public class TableauScores {
 		}
 	}
 
+	public static void deleteScores() {
+		try  
+		{         
+			String path = System.getProperty("user.dir")+"/donnees/";
+			File f = new File(path+"/json/tabScores.json"); 
+			if(f.delete())  
+			{  
+				System.out.println(f.getName() + " deleted");   //getting and printing the file name  
+			}  
+			else  
+			{  
+				System.out.println("Score deletion has failed");  
+			}  
+		}  
+		catch(Exception e)  
+		{  
+			e.printStackTrace();  
+		}  
+	}
+
 
 
 
