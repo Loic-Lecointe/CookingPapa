@@ -9,12 +9,12 @@ import outils.TableauScores;
 public class Menu {
 	static Scanner sc = new Scanner(System.in);
 	static int choix = 0; 
-	  
+	
 	public static void start() {
 		PrintTools.clearScreen();
 		
 		PrintTools.printPath("/src/main/logo.txt");
-		
+						
 		Verification(4);
 		if(choix == 1) {
 			//Choix du mode de jeu (entre niveaux et mode infini)

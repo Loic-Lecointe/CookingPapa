@@ -37,7 +37,6 @@ public class Main {
 			Date orderDate = new Date();
 			
 			System.out.println(hotReceipeList.get(0).createOrder());
-			furnaces.add((HotOrder) hotReceipeList.get(0).createOrder());
 			
 			// Ajoute quelques plats à servir au début de la partie
 			for (int i = 0; i < Math.random() * 3 + 1; i++)	
@@ -135,12 +134,19 @@ public class Main {
 		if(CookInput.isCorrect(order)) {
 			plats_reussi++;
 			finish = "Bravo vous avez reussi";
+			if (order.isHot()) {
+				((HotOrder) order).startCook();
+				furnaces.add((HotOrder) order);
+			}
 		}else {
 			nbLife--;
 			plats_echoue++;
 			finish = "Tu es nul";
 		}
-		orders.remove(index);
+		
+		if (order.isHot()) {
+			orders.remove(index);
+		}
 		System.out.println(finish);
 	}
 	

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class HotOrder extends Order {
 	private static final int TIME_TO_COOK = 10;
+	private Date time_start_cook;
 	
 	public HotOrder(Receipe receipe) {
 		super(receipe);
@@ -17,7 +18,7 @@ public class HotOrder extends Order {
 	public String getProgressBar() {
 		int BAR_SIZE = 10;
 		Date now = new Date();
-		long completed = (long) ((double) ((now.getTime() - time_start.getTime()) / 1000) / TIME_TO_COOK * BAR_SIZE);
+		long completed = (long) ((double) ((now.getTime() - time_start_cook.getTime()) / 1000) / TIME_TO_COOK * BAR_SIZE);
 		if (completed > BAR_SIZE) {
 			completed = BAR_SIZE;
 		}
@@ -34,5 +35,21 @@ public class HotOrder extends Order {
 		
 		res.append("]");
 		return res.toString();
+	}
+	
+	public void startCook() {
+		time_start_cook = new Date();
+	}
+	
+	public boolean isCooking() {
+		return time_start_cook != null;
+	}
+	
+	public boolean isCooked() {
+		if (time_start_cook == null) {
+			return false;
+		}
+		Date now = new Date();
+		return now.getTime() - time_start_cook.getTime() >= TIME_TO_COOK;
 	}
 }
