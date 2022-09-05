@@ -32,6 +32,7 @@ public enum Ingredient {
 	CORNICHON("cornichon",'c'),
 	POMME_DE_LA_TERRE("pomme de la terre",'p'),
 	GOUDA("gouda",'g'),
+	PAPAYE("papaye",'y'),
 	BIERE("biere",'i'),
 	CELERI("celeri",'e'),
 	AIL("ail",'a'),
