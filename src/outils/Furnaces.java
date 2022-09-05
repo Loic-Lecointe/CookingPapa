@@ -21,7 +21,7 @@ public class Furnaces {
 	
 	public void remove(Order order) {
 		int i = 0;
-		while (i < food.length && !food[i].equals(order)) i++;
+		while (i < food.length && food[i] != order) i++;
 		if (i < food.length) {
 			food[i] = null;
 		}

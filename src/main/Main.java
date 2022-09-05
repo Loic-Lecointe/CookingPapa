@@ -25,8 +25,6 @@ public class Main {
 	
 	public static void main(String[] args) {
 		Menu.start();
-		
-		
 	}
 	
 	private static void addNewOrder() {
@@ -70,10 +68,9 @@ public class Main {
 	
 	public static void takeOrder(int index) {
 		
-		try {
-			Order order = orders.get(index);
-			
-			PrintTools.clearScreen();
+		Order order = orders.get(index);
+		
+		PrintTools.clearScreen();
 		
 		if (!order.isHot() || !((HotOrder) order).isCooking() && !((HotOrder) order).isCooked()) {
 			System.out.println("◀◀ Plat: " + order.getName() + " ▶▶");
@@ -103,11 +100,6 @@ public class Main {
 		if (!order.isHot() || ((HotOrder) order).isCooked()) {
 			furnaces.remove(order);
 			orders.remove(index);
-		}
-		} catch(NullPointerException npe) {
-			System.out.println("Cette commande n'est pas disponible");
-		} catch(ArrayIndexOutOfBoundsException aiooe) {
-			System.out.println("Le chiffre donn� est trop grand");
 		}
 	}
 	
@@ -143,7 +135,7 @@ public class Main {
 			System.out.println("Score enregistre. Merci d'avoir joue !");
 			sc.close();
 		}
-		System.out.println("Appuyez sur entr�e pour revenir au menu principal");
+		System.out.println("Appuyez sur entr�e pour revenir au menu principal");
 		Scanner sc = new Scanner(System.in);
 		sc.nextLine();
 		Menu.start();
