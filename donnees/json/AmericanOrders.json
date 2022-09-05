@@ -20,7 +20,7 @@
     ,
     {
         "name":"Bagel au saumon et a l'avocat",
-        "mandatoryIngredients":["PAIN_A_BAGEL","AVOCAT","FROMAGE","SAUMON"],
+        "mandatoryIngredients":["PAIN","AVOCAT","FROMAGE","SAUMON"],
         "optionalIngredients":[],
         "isHot":"false"
     }
