@@ -11,6 +11,7 @@ public class Menu {
 	static int choix = 0; 
 	
 	public static void start() {
+		choix = 0;
 		PrintTools.clearScreen();
 		
 		PrintTools.printPath("/src/main/logo.txt");
