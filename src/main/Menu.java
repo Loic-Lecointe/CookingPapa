@@ -58,7 +58,7 @@ public class Menu {
 		PrintTools.printPath("/src/main/Selection.txt");
 		Verification(5);
 		if(choix == 4) {
-			Main.jeu(true, 0);
+			Main.jeu(true, 5);
 		} else if (choix == 5) {
 			start();
 		}

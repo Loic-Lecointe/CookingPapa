@@ -59,8 +59,8 @@ public class MealOrder {
 		
 		if (recipe.getOptionalIngredients().size() != 0) {
 			res.append("\n┉┉┉ Ingredients supplementaires ┉┉┉\n");
-
 		}
+		
 		for(Ingredient ingredient : recipe.getOptionalIngredients()) {
 			res.append(ingredient + "\n");
 		}

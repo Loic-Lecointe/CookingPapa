@@ -128,6 +128,7 @@ public class Main {
 	}
 	
 	public static boolean isFinished() {
+		
 		return !isInfinite?(totalOrders == NB_ORDERS_GAME && orders.getNbOrders() == 0):nbLife<=0;
 	}
 	
@@ -184,7 +185,6 @@ public class Main {
 			
 			while (it.getInput() == null && !isFinished()) {
 				date = new Date();
-				
 				if (date.getTime() - orderDate.getTime() > randomTime * 1000) {
 					randomTime = (Math.random() * 10 + 5) / niveau;
 					orderDate = date;
